@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useContext} from 'react'
+import { ArtContext } from '../providers/ArtProvider'
+
+import '../styles/name.module.scss'
 
 const Name = () => {
+    const [art] = useContext(ArtContext)
     return (
         <div className="name-container">
-            <p>Name</p>
+            {Object.keys(art.cv).length !== 0 && (
+                <>
+                <h1>{art.cv.name}</h1>
+                <h2>b. {art.cv.birthYear}, {art.cv.birthCity}</h2>
+                <h3>lives and works in {art.cv.workCities[0]} and {art.cv.workCities[1]}</h3>
+                </>
+            )}
         </div>
     )
 }
