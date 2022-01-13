@@ -8,6 +8,7 @@ import Exhibit from '../components/Exhibit'
 import Info from '../components/Info'
 import Name from '../components/Name'
 import Nav from '../components/Nav'
+import News from '../components/News'
 
 import { ArtContext } from '../providers/ArtProvider'
 
@@ -19,6 +20,7 @@ import { ArtContext } from '../providers/ArtProvider'
 // name - 300
 // info - 400
 // nav - 500
+// news - 600
 
 const Home = ({ artworks, cv }) => {
   const [art, setArt] = useContext(ArtContext)
@@ -48,6 +50,7 @@ const Home = ({ artworks, cv }) => {
       <Exhibit />
       <Artworks />
       <Info />
+      <News />
     </div>
   )
 }

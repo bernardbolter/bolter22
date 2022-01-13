@@ -1,13 +1,13 @@
 import React from 'react'
 
-import styles from '../styles/nav.module.scss'
+import styles from '../styles/bio.module.scss'
 
-const Nav = () => {
+const Bio = () => {
     return (
         <div className={styles.container}>
-            <p>Nav</p>
+            <p>Bio</p>
         </div>
     )
 }
 
-export default Nav
+export default Bio

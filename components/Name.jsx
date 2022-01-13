@@ -1,12 +1,12 @@
 import React, { useContext} from 'react'
 import { ArtContext } from '../providers/ArtProvider'
 
-import '../styles/name.module.scss'
+import styles from '../styles/name.module.scss'
 
 const Name = () => {
     const [art] = useContext(ArtContext)
     return (
-        <div className="name-container">
+        <div className={styles.container}>
             {Object.keys(art.cv).length !== 0 && (
                 <>
                 <h1>{art.cv.name}</h1>

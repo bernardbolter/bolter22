@@ -1,13 +1,13 @@
 import React from 'react'
 
-import styles from '../styles/nav.module.scss'
+import styles from '../styles/cv.module.scss'
 
-const Nav = () => {
+const Cv = () => {
     return (
         <div className={styles.container}>
-            <p>Nav</p>
+            <p>CV</p>
         </div>
     )
 }
 
-export default Nav
+export default Cv
