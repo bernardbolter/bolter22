@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from '../styles/statement'
+import styles from '../styles/statement.module.scss'
 
 const Statement = () => {
     return (
