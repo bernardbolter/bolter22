@@ -49,6 +49,7 @@
                 transform: rotate(0);
                 transition: all .2s;
                 background: $light;
+                opacity: .7;
             }
 
             .shaft {
@@ -56,6 +57,7 @@
                 height: 1px;
                 background: $light;
                 transition: all .2s;
+                opacity: .7;
             }
 
             .bottom {
@@ -64,15 +66,17 @@
                 transform: rotate(0);
                 transition: all .2s;
                 background: $light;
+                opacity: .7;
             }
 
         }
         
         svg {
-            width: 21px;
+            width: 23px;
             fill: $light;
             transform: translateX(0);
             transition: all .2s;
+            opacity: .9;
         }
 
         &:hover {
@@ -96,6 +100,7 @@
                 }
 
                 svg {
+                    opacity: 1;
                     transform: translateX(60px);
                     transition: all .2s;
                 }

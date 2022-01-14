@@ -58,10 +58,10 @@ const Home = ({ artworks, cv }) => {
 export default Home
 
 export async function getStaticProps() {
-    const res = await fetch('http://localhost:1337/api/artworks')
-    const artworks = await res.json()
-    const resTwo = await fetch('http://localhost:1337/api/cv?populate=*')
-    const cv = await resTwo.json()
+    const resArtworks = await fetch('http://localhost:1337/api/artworks')
+    const artworks = await resArtworks.json()
+    const resCV = await fetch('http://localhost:1337/api/cv?populate=*')
+    const cv = await resCV.json()
   return {
     props: {
       artworks,
