@@ -1,12 +1,13 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 import styles from '../styles/nav.module.scss'
 
 const Nav = () => {
     return (
-        <div className={styles.container}>
+        <motion.div className={styles.container}>
             <p>Nav</p>
-        </div>
+        </motion.div>
     )
 }
 

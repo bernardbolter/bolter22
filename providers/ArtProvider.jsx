@@ -43,12 +43,17 @@ const ArtProvider = ({ children }) => {
             art.sourceCv.data.attributes.exhibitions.map(exhibition => {
                 shapedExhibitions.push(exhibition.exhibition)
             })
+            var shapedLinks = []
+            art.sourceCv.data.attributes.links.map(link => {
+                shapedLinks.push(link)
+            })
             var shapedCv = {
                 name: art.sourceCv.data.attributes.name,
                 birthCity: art.sourceCv.data.attributes.birth_city,
                 birthYear: art.sourceCv.data.attributes.birth_date,
                 workCities: shapedWorkCities,
-                exhibitions: shapedExhibitions
+                exhibitions: shapedExhibitions,
+                links: shapedLinks
             }
             setArt(state => ({ ...state, cv: shapedCv }))
         }

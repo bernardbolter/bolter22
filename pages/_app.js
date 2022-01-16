@@ -1,11 +1,10 @@
-import { LazyMotion, AnimatePresence, domAnimation, m } from 'framer-motion'
+import { LazyMotion, AnimatePresence, domAnimation, m, AnimateSharedLayout } from 'framer-motion'
 
 import ArtProvider from '../providers/ArtProvider'
 
 import '../styles/globals.scss'
 
 function MyApp({ Component, pageProps, router }) {
-  console.log(router)
 
   const myAnimation = {
     initial: {
@@ -24,7 +23,7 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <ArtProvider>
-      <LazyMotion features={domAnimation}>
+      {/* <LazyMotion features={domAnimation}>
         <AnimatePresence>
           <m.div
             key={router.route}
@@ -33,11 +32,11 @@ function MyApp({ Component, pageProps, router }) {
             exit="exit"
             transition={myAnimation.transition}
             variants={myAnimation}
-          >
+          > */}
             <Component {...pageProps} />
-          </m.div>
+          {/* </m.div>
         </AnimatePresence>
-      </LazyMotion>
+      </LazyMotion> */}
     </ArtProvider>
   )
 }

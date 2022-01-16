@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 
+import Info from "../components/Info"
+
 import styles from '../styles/bio.module.scss'
 
 const Bio = () => {
@@ -10,6 +12,7 @@ const Bio = () => {
             <Link href="/">
                 <a>Home</a>
             </Link>
+            <Info />
         </div>
     )
 }

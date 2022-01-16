@@ -8,103 +8,212 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+}
 
-    h1 {
-        font-family: $font-thick;
-        color: $dark;
-        font-size: 24px;
-        margin: 0;
-        padding: 0 0 20px;
-    }
+.name {
+    font-family: $font-thick;
+    color: $dark;
+    font-size: 24px;
+    margin: 0;
+    padding: 0 0 20px;
+}
 
-    h2 {
-        font-family: $font-medium;
-        font-weight: 300;
-        color: $medium;
-        font-size: 12px;
-        line-height: 16px;
-        margin: 0;
-        padding: 0 0 0 5px;
-    }
+.info {
+    font-family: $font-medium;
+    font-weight: 300;
+    color: $medium;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0;
+    padding: 0 0 0 5px;
+}
 
-    .instagram {
-        margin: 15px 0 0 5px;
-        display: block;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
+.instagram {
+    margin: 15px 0 0 5px;
+    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
+    &:hover {
         .arrow {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-end;
-            height: 21px;
-            margin: 0;
-
-            .top {
-                width: 0;
-                height: 1px;
-                transform: rotate(0);
-                transition: all .2s;
-                background: $light;
-                opacity: .7;
-            }
-
-            .shaft {
-                width: 0;
-                height: 1px;
-                background: $light;
-                transition: all .2s;
-                opacity: .7;
-            }
-
-            .bottom {
-                width: 0;
-                height: 1px;
-                transform: rotate(0);
-                transition: all .2s;
-                background: $light;
-                opacity: .7;
-            }
-
+            margin: 0 10px 0 0;
         }
-        
-        svg {
-            width: 23px;
-            fill: $light;
-            transform: translateX(0);
+
+        .top {
+            width: 8px;
+            transform: rotate(40deg) translate(-2px, -1px);
             transition: all .2s;
-            opacity: .9;
         }
-
-        &:hover {
-            .arrow {
-                margin: 0 10px 0 0;
-                .top {
-                    width: 8px;
-                    transform: rotate(40deg) translate(-2px, -1px);
-                    transition: all .2s;
-                }
-
-                .shaft {
-                    width: 40px;
-                    transition: all .2s;
-                }
-
-                .bottom {
-                    width: 8px;
-                    transform: rotate(-40deg) translate(-2px, 1px);
-                    transition: all .2s;
-                }
-
-                svg {
-                    opacity: 1;
-                    transform: translateX(60px);
-                    transition: all .2s;
-                }
-            }
+        .shaft {
+            width: 40px;
+            transition: all .2s;
+        }
+        .bottom {
+            width: 8px;
+            transform: rotate(-40deg) translate(-2px, 1px);
+            transition: all .2s;
         }
     }
 }
+
+.arrow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    height: 21px;
+    margin: 0;
+}
+
+.top {
+    width: 0;
+    height: 1px;
+    transform: rotate(0);
+    transition: all .2s;
+    background: $light;
+    opacity: .7;
+}
+
+.shaft {
+    width: 0;
+    height: 1px;
+    background: $light;
+    transition: all .2s;
+    opacity: .7;
+}
+
+.bottom {
+    width: 0;
+    height: 1px;
+    transform: rotate(0);
+    transition: all .2s;
+    background: $light;
+    opacity: .7;
+}
+    
+.instaSvg {
+    width: 23px;
+    fill: $light;
+    transform: translateX(0);
+    transition: all .2s;
+    opacity: .9;
+}
+
+
+.linkButton {
+    width: 25px;
+    margin: 10px 0 0 3px;
+    cursor: pointer;
+}
+
+.linkSvg {
+    width: 100%;
+    fill: $light;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    left: 40px;
+    top: -30px;
+}
+
+.link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    &:hover {
+        .linkArrow {
+            margin: 0 10px 0 0;
+        }
+        .linkTop {
+            width: 8px;
+            transform: rotate(40deg) translate(-2px, -1px);
+            transition: all .2s;
+        }
+        .linkShaft {
+            width: 40px;
+            transition: all .2s;
+        }
+        .linkBottom {
+            width: 8px;
+            transform: rotate(-40deg) translate(-2px, 1px);
+            transition: all .2s;
+        }
+    }
+}
+
+.linkText {
+    margin: 0;
+    padding: 0;color: $light;
+    font-family: $font-thick;
+    font-size: 16px;
+    margin: 0;
+    padding: 2px 0;
+}
+ 
+.linkArrow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    height: 21px;
+    margin: 0;
+}
+
+.linkTop {
+    width: 0;
+    height: 1px;
+    transform: rotate(0);
+    transition: all .2s;
+    background: $light;
+    opacity: .7;
+}
+
+.linkShaft {
+    width: 0;
+    height: 1px;
+    background: $light;
+    transition: all .2s;
+    opacity: .7;
+}
+
+.linkBottom {
+    width: 0;
+    height: 1px;
+    transform: rotate(0);
+    transition: all .2s;
+    background: $light;
+    opacity: .7;
+}
+    
+                // &:hover {
+                //     .linkArrow {
+                //         margin: 0 10px 0 0;
+                //         .linkTop {
+                //             width: 8px;
+                //             transform: rotate(40deg) translate(-2px, -1px);
+                //             transition: all .2s;
+                //         }
+            
+                //         .linkShaft {
+                //             width: 40px;
+                //             transition: all .2s;
+                //         }
+            
+                //         .linkBottom {
+                //             width: 8px;
+                //             transform: rotate(-40deg) translate(-2px, 1px);
+                //             transition: all .2s;
+                //         }
+                //     }
+                // }
+            // }

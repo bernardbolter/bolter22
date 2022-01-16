@@ -45,6 +45,7 @@ const Home = ({ artworks, cv }) => {
         <meta name="description" content="Bernard Bolter Web Portal" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
       <Name />
       <Nav />
       <Exhibit />
