@@ -10,8 +10,14 @@ const ArtProvider = ({ children }) => {
         sourceArtwork: {},
         originalArtwork: [],
         filteredArtwork: [],
+        filterArray: [],
+        sortArray: [],
         sourceCv: {},
-        cv: {}
+        cv: {},
+        sourceBio: {},
+        bio: {},
+        sourceStatement: {},
+        statement: {}
     })
 
     //  shape Strapi artwork data into an array

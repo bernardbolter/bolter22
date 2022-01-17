@@ -1,26 +1,41 @@
-export const fadeLinks = {
-    initial: {
+export const nameContainer = {
+    hidden: {
         opacity: 0
     },
-    animate: {
-        opacity: 1,
+    visible: {
+        opacity: 1
+    },
+    exit: {
+        opacity: 0
+    }
+}
+
+export const fadeLinks = {
+    hidden: {
+        opacity: 1
+    },
+    visible: {
         transition: {
-            when: "beforeChildren",
-            staggerChildren: 2,
+            staggerChildren: 0.15,
             staggerDirection: 1
         }
     },
     exit: {
-        opacity: 0,
-        transition: { duration: 2 }
+        transition: {
+            staggerChildren: 0.15,
+            staggerDirection: -1
+        }
     }
 }
 
 export const fadeLink = {
-    initial: {
+    hidden: {
         opacity: 0
     },
-    animate: {
-        opacity: 1
+    visible: {
+        opacity: 1,
+    },
+    exit: {
+        opacity: 0,
     }
 }

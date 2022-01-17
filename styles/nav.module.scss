@@ -4,3 +4,120 @@
     top: 0;
     right: 0;
 }
+
+.boxes {
+    position: fixed;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.box {
+    width: 10px;
+    height: 10px;
+    border-radius: 1px;
+    background: gray;
+}
+
+.navLinks {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.toExhibit {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0;
+        cursor: pointer;
+
+    p {
+        font-family: $font-thick;
+        font-weight: 600;
+        color: $dark;
+        font-size: 14px;
+        margin: 0 5px 0 0;
+        padding: 0;
+    }
+
+    &:hover {
+        .arrow {
+            margin: 0 0 0 0 10px;
+        }
+
+        .top {
+            width: 8px;
+            transform: rotate(130deg) translate(-1px, 2px);
+            transition: all .2s;
+        }
+        .shaft {
+            width: 40px;
+            transition: all .2s;
+        }
+        .bottom {
+            width: 8px;
+            transform: rotate(-130deg) translate(-1px, -2px);
+            transition: all .2s;
+        }
+    }
+}
+
+.arrow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 21px;
+    margin: 0;
+}
+
+.top {
+    width: 0;
+    height: 1px;
+    transform: rotate(0);
+    transition: all .2s;
+    background: $light;
+    opacity: .7;
+}
+
+.shaft {
+    width: 0;
+    height: 1px;
+    background: $light;
+    transition: all .2s;
+    opacity: .7;
+}
+
+.bottom {
+    width: 0;
+    height: 1px;
+    transform: rotate(0);
+    transition: all .2s;
+    background: $light;
+    opacity: .7;
+}
+
+.by {
+    font-family: $font-medium;
+    font-weight: 400;
+    color: $medium;
+    font-size: 9px;
+    margin: 10px 15px 10px 0;
+    padding: 0;
+}
+
+.slug {
+    font-family: $font-light;
+    font-weight: 200;
+    color: $dark;
+    font-size: 12px;
+    margin: 0;
+    padding: 3px 12px 3px 0;
+    cursor: pointer;
+}

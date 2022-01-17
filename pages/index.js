@@ -48,8 +48,7 @@ const Home = ({ artworks, cv }) => {
       
       <Name />
       <Nav />
-      <Exhibit />
-      <Artworks />
+      {art.viewArtworks ? <Artworks /> : <Exhibit />}
       <Info />
       <News />
     </div>
