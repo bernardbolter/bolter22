@@ -7,11 +7,12 @@ export const ArtContext = createContext()
 const ArtProvider = ({ children }) => {
     const [art, setArt] = useState({
         viewArtworks : false,
+        slideRight: false,
         sourceArtwork: {},
         originalArtwork: [],
         filteredArtwork: [],
         filterArray: [],
-        sortArray: [],
+        sortValue: 'random',
         sourceCv: {},
         cv: {},
         sourceBio: {},

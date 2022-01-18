@@ -10,38 +10,7 @@ export const navContainer = {
     }
 }
 
-export const war = {
-    initial: {
-        background: '#393B3E',
-        x: -50,
-        y: 10,
-    },
-    exhibit: {
-        background: '#393B3E',
-        x: -50,
-        y: 10,
-        transition: {
-            duration: .5
-        }
-    },
-    artwork: {
-        background: '#6D2E46',
-        x: -10,
-        y: 20,
-        transition: {
-            duration: .5
-        }
-    }
-}
-
 export const links = {
-    exhibit: {
-        transition: {
-            // when: 'beforeChildren',
-            // staggerChildren: 0.05,
-            // staggerDirection: 1
-        }
-    },
     artwork: {
         transition: {
             staggerChildren: 0.05,
