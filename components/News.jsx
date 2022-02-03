@@ -5,7 +5,7 @@ import styles from '../styles/news.module.scss'
 
 const CustomForm = ({ status, message, onValidated }) => {
     const [email, setEmail] = useState('')
-    console.log(status, message, onValidated)
+    // console.log(status, message, onValidated)
 
     const handleSubmit = () => {
         // e.preventDefault()

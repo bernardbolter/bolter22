@@ -28,6 +28,7 @@ const Home = ({ artworks, cv }) => {
 
   useEffect(() => {
     if (artworks !== undefined) {
+      console.log(artworks)
       setArt(state => ({...state, sourceArtwork: artworks}))
     }
   }, [artworks])

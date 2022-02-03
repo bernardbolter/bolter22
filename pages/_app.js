@@ -1,4 +1,4 @@
-import { LazyMotion, AnimatePresence, domAnimation, m, AnimateSharedLayout } from 'framer-motion'
+import { LazyMotion, AnimatePresence, domAnimation } from 'framer-motion'
 
 import ArtProvider from '../providers/ArtProvider'
 
@@ -23,20 +23,11 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <ArtProvider>
-      {/* <LazyMotion features={domAnimation}>
+      <LazyMotion features={domAnimation}>
         <AnimatePresence>
-          <m.div
-            key={router.route}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={myAnimation.transition}
-            variants={myAnimation}
-          > */}
-            <Component {...pageProps} />
-          {/* </m.div>
+            <Component {...pageProps} key={router.route} />
         </AnimatePresence>
-      </LazyMotion> */}
+      </LazyMotion>
     </ArtProvider>
   )
 }

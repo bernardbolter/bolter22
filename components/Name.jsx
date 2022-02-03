@@ -8,18 +8,12 @@ import styles from '../styles/name.module.scss'
 
 const Name = () => {
     const [art] = useContext(ArtContext)
-    console.log(art.cv)
     const [showLinks, setShowLinks] = useState(false)
-    console.log(showLinks)
 
     return (
         <AnimatePresence>
             {Object.keys(art.cv).length !== 0 && (
                 <motion.div
-                    // initial="hidden"
-                    // animate="visible"
-                    // exit="exit"
-                    // variants="nameContainer"
                     className={styles.container}
                 >    
                     <h1 className={styles.name}>{art.cv.name}</h1>
@@ -59,9 +53,6 @@ const Name = () => {
                             {art.cv.links.map(link => (
                                 <motion.a 
                                     className={styles.link}
-                                    // initial={{ opacity: 0 }}
-                                    // animate={{ opacity: 1 }}
-                                    // exit={{ opacity: 0 }}
                                     href={link.url} 
                                     key={link.id}
                                     variants={fadeLink}

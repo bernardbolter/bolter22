@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react'
+import Image from 'next/image'
 
 import { shuffle } from '../utils'
 
@@ -30,6 +31,7 @@ const ArtProvider = ({ children }) => {
                shapedArt["id"] = art.id
                shapedArtwork.push(shapedArt)
            })
+           console.log(shapedArtwork)
            setArt(state => ({
                ...state,
                originalArtwork: shapedArtwork,

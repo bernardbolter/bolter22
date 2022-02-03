@@ -1,10 +1,5 @@
 const path = require('path')
 
-module.exports = {
-  reactStrictMode: true,
-}
-
-
 module.exports = (phase, {defaultConfig}) => {
   if ('sassOptions' in defaultConfig) {
       defaultConfig['sassOptions'] = {
@@ -13,4 +8,10 @@ module.exports = (phase, {defaultConfig}) => {
       }
   }
   return defaultConfig;
+}
+
+module.exports = {
+  images: {
+    domains: ['madinberlin.net'],
+  },
 }
