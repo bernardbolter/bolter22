@@ -30,8 +30,9 @@ const Exhibit = () => {
         setPosition(position => {
             return position === lastIndex ? 0 : position + 1
         })
-
     }
+
+    console.log(currentArtwork)
 
     return (
         
@@ -43,8 +44,8 @@ const Exhibit = () => {
                     transition={{ duration: 1 }}
                 >
                     <AnimatePresence>
-                    <p>{currentArtwork.title}</p>
-                    <img src={`https://madeinberlin.net/artworks/${currentArtwork.seriesSlug}/${currentArtwork.slug}/${currentArtwork.slug}_lg.jpg`} alt="cliff" />
+                    <p>{currentArtwork.slug}</p>
+                    <img src={`https://madeinberlin.net/artworks/${currentArtwork.artwork.series}/${currentArtwork.slug}/${currentArtwork.slug}_lg.jpg`} alt="cliff" />
                     </AnimatePresence>
                 </motion.div>
         // <>
