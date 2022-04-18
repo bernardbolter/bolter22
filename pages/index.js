@@ -36,7 +36,12 @@ const Home = ({ works }) => {
   const [art, setArt] = useContext(ArtContext)
   
   useEffect(() => {
-    setArt(state => ({...state, originalArtwork: works, filteredArtwork: works}))
+    setArt(state => ({
+        ...state, 
+        originalArtwork: works, 
+        filteredArtwork: works,
+        currentArtwork: works[0]
+    }))
   }, [works])
 
   console.log(art)

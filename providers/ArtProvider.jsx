@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext } from 'react'
-import Image from 'next/image'
-
 import { shuffle } from '../utils'
+
+import cvData from '../data/cv.json'
 
 export const ArtContext = createContext()
 
@@ -12,10 +12,12 @@ const ArtProvider = ({ children }) => {
         sourceArtwork: {},
         originalArtwork: [],
         filteredArtwork: [],
+        currentArtwork: {},
+        exhibitPosition: 0,
         filterArray: [],
         sortValue: 'random',
         sourceCv: {},
-        cv: {},
+        cv: cvData,
         sourceBio: {},
         bio: {},
         sourceStatement: {},

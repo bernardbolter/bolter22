@@ -9,45 +9,56 @@ import styles from '../styles/exhibit.module.scss'
 const Exhibit = () => {
     const [art, setArt] = useContext(ArtContext)
     console.log(art.filteredArtwork)
-    const [position, setPosition] = useState(0)
-    const [currentArtwork, setCurrentArtwork] = useState({})
-    console.log(currentArtwork)
+    // const [position, setPosition] = useState(0)
+    // const [currentArtwork, setCurrentArtwork] = useState({})
+    // console.log(currentArtwork)
 
     useEffect(() => {
-        const interval = setInterval(changeArt, 4000)
+        const interval = setInterval(changeArt, 10000)
         return () => clearInterval(interval)
-    }, [art.filteredArtwork])
+    }, [art.exhibitPosition])
 
     useEffect(() => {
         console.log(art.filteredArtwork)
         if (art.filteredArtwork.length !== 0) {
-            setCurrentArtwork(art.filteredArtwork[position])
+            setArt(state => ({ ...state, currentArtwork: art.filteredArtwork[art.exhibitPosition] }))
+            // setCurrentArtwork(art.filteredArtwork[art.exhibitPosition])
         }
-    }, [position])
+    }, [art.exhibitPosition])
 
     const changeArt = () => {
         const lastIndex = art.filteredArtwork.length - 1
-        setPosition(position => {
-            return position === lastIndex ? 0 : position + 1
-        })
+        console.log("last: ",lastIndex)
+        setArt(state => ({ ...state, exhibitPosition: art.exhibitPosition === lastIndex ? 0 : art.exhibitPosition + 1}))
+        console.log("position: ", art.exhibitPosition)
+        // setPosition(position => {
+        //     return position === lastIndex ? 0 : position + 1
+        // })
     }
 
-    console.log(currentArtwork)
+    console.log(art.currentArtwork)
 
-    return (
-        
+    if (art.currentArtwork.artwork === undefined) {
+        return <div />
+    } else {
+
+        return (
+            <AnimatePresence>
                 <motion.div 
                     className={styles.container}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 1 }}
+                    key={art.currentArtwork.slug}
                 >
-                    <AnimatePresence>
-                    <p>{currentArtwork.slug}</p>
-                    <img src={`https://madeinberlin.net/artworks/${currentArtwork.artwork.series}/${currentArtwork.slug}/${currentArtwork.slug}_lg.jpg`} alt="cliff" />
-                    </AnimatePresence>
+                    
+                    <p>{art.currentArtwork.slug}</p>
+                    <img src={`https://madeinberlin.net/artworks/${art.currentArtwork.artwork.series}/${art.currentArtwork.slug}/${art.currentArtwork.slug}_lg.jpg`} alt="artwork" />
                 </motion.div>
+            </AnimatePresence>
+        )
+    }
         // <>
         // {Object.values(currentArtwork).length !== 0 && (
         //     <AnimatePresence>
@@ -63,7 +74,7 @@ const Exhibit = () => {
         //     </AnimatePresence>
         // )}
         // </>
-    )
+    
 }
 
 export default Exhibit

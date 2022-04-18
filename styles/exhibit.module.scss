@@ -1,5 +1,4 @@
 .container {
-    color: green;
     z-index: 200;
     position: fixed;
     width: 100%;
@@ -11,4 +10,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    p {
+        position: fixed;
+        top: 20px;
+    }
+
+    img {
+        width: 80%;
+    }
 }

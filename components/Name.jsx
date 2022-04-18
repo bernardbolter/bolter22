@@ -10,6 +10,7 @@ const Name = () => {
     const [art] = useContext(ArtContext)
     const [showLinks, setShowLinks] = useState(false)
 
+
     return (
         <AnimatePresence>
             {Object.keys(art.cv).length !== 0 && (
@@ -50,11 +51,13 @@ const Name = () => {
                             animate="visible"
                             exit="exit"
                         >
-                            {art.cv.links.map(link => (
+                            {art.cv.links.map(link => {
+                                console.log("link: ", link)
+                                return (
                                 <motion.a 
                                     className={styles.link}
                                     href={link.url} 
-                                    key={link.id}
+                                    key={link.display}
                                     variants={fadeLink}
                                 >
                                     <div className={styles.linkArrow}>
@@ -64,7 +67,7 @@ const Name = () => {
                                     </div>
                                     <p className={styles.linkText}>{link.display}</p>
                                 </motion.a>
-                            ))}
+                            )})}
                         </motion.div>
                     )}
                     </AnimatePresence>
