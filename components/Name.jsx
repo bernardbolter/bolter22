@@ -10,7 +10,6 @@ const Name = () => {
     const [art] = useContext(ArtContext)
     const [showLinks, setShowLinks] = useState(false)
 
-
     return (
         <AnimatePresence>
             {Object.keys(art.cv).length !== 0 && (

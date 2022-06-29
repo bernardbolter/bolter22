@@ -21,6 +21,7 @@ const Exhibit = () => {
     useEffect(() => {
         console.log(art.filteredArtwork)
         if (art.filteredArtwork.length !== 0) {
+            console.log(art.currentArtwork)
             setArt(state => ({ ...state, currentArtwork: art.filteredArtwork[art.exhibitPosition] }))
             // setCurrentArtwork(art.filteredArtwork[art.exhibitPosition])
         }
