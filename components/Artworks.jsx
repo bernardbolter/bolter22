@@ -10,8 +10,7 @@ const Artworks = () => {
 
     return (
         <div className={styles.container}>
-            <p>Under Construction,</p>
-            <p>Check back soon.</p>
+            <p>Under Construction</p>
         </div>
     )
 }
