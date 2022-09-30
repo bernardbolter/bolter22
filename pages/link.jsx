@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
 import axios from 'axios'
  
 import styles from '../styles/link.module.scss'
@@ -19,7 +19,7 @@ const Link = () => {
         .catch(err => console.log(err))
         .then(() => {
             console.log('non data')
-            // setData('https://megacities.world')
+            setData('https://megacities.world')
         })
     }, [])
 

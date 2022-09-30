@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ArtContext } from '../providers/ArtProvider'
 
 import styles from '../styles/artworks.module.scss'
 
 const Artworks = () => {
     // console.log(posts)
+    const [art, setArt] = useContext(ArtContext)
+    console.log(art.filteredArtwork)
+
     return (
         <div className={styles.container}>
             <p>Artworks</p>
