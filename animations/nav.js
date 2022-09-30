@@ -10,6 +10,10 @@ export const navContainer = {
     }
 }
 
+export const filter_sort = {
+    initial: { opacity: 1 },
+}
+
 export const links = {
     artwork: {
         transition: {
@@ -35,4 +39,40 @@ export const item = {
     exit: {
         opacity: 0
     }
+}
+
+export const navItem = {
+    exhibit: {
+        opacity: 0
+    },
+    artwork: {
+        opacity: 1
+    },
+    exit: {
+        opacity: 0
+    }
+}
+
+export const filterItem = {
+    exhibit: {
+        opacity: 0
+    },
+    artwork: {
+        opacity: 1
+    },
+    exit: {
+        opacity: 0
+    }
 } 
+
+export const search = {
+    initial: {
+        opacity: 0
+    },
+    animate: {
+        opacity: 1
+    },
+    exit: {
+        opacity: 0
+    }
+}

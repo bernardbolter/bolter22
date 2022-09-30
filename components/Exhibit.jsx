@@ -39,7 +39,7 @@ const Exhibit = () => {
 
     console.log(art.currentArtwork)
 
-    if (art.currentArtwork.artwork === undefined) {
+    if (Object.keys(art.currentArtwork).length === 0) {
         return <div />
     } else {
 
@@ -55,7 +55,14 @@ const Exhibit = () => {
                 >
                     
                     <p>{art.currentArtwork.slug}</p>
-                    <img src={`https://madeinberlin.net/artworks/${art.currentArtwork.artwork.series}/${art.currentArtwork.slug}/${art.currentArtwork.slug}_lg.jpg`} alt="artwork" />
+                    <div>
+                        <Image 
+                            src={`https://www.madeinberlin.net/artworks/${art.currentArtwork.series}/${art.currentArtwork.slug}/${art.currentArtwork.slug}_xl.jpg`}
+                            alt="artwork"
+                            layout="fill"
+                            objectFit="cover"
+                        />
+                    </div>
                 </motion.div>
             </AnimatePresence>
         )
