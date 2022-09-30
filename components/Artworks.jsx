@@ -10,7 +10,8 @@ const Artworks = () => {
 
     return (
         <div className={styles.container}>
-            <p>Artworks</p>
+            <p>Under Construction,</p>
+            <p>Check back soon.</p>
         </div>
     )
 }
