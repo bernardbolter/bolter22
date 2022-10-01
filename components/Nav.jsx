@@ -3,7 +3,6 @@ import { ArtContext } from '../providers/ArtProvider'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useWindowSize } from '../helpers/useWindowSize'
 
-
 import Box from '../components/Box'
 import Search from '../components/Search'
 import NavItem from './NavItem'
@@ -12,7 +11,7 @@ import { Minimize } from '../svg/minimize'
 
 import {
     links,
-    item
+    navItem
 } from '../animations/nav'
 
 import styles from '../styles/nav.module.scss'
@@ -106,15 +105,15 @@ const Nav = () => {
                 {art.showFilterNav && (
                     <motion.div className={styles.navLinks} variants={links} initial="exhibit" animate="artwork" exit="exit" key="links">
 
-                            <motion.p variants={item} className={styles.by}>filter by:</motion.p>
+                            <motion.p variants={navItem} className={styles.by}>filter by:</motion.p>
 
-                            {filterValues.map(filter => <NavItem item={filter} type="filter" key={filter.slug} />)}
+                            {filterValues.map(filter => <NavItem item={filter} key={filter.slug} />)}
                             
-                            <motion.p variants={item} className={styles.by}>sort by:</motion.p>
+                            <motion.p variants={navItem} className={styles.by}>sort by:</motion.p>
 
                             {sortValues.map(sort => {
                                 return (
-                                    <motion.p  className={styles.slug} key={sort.slug}  variants={item}
+                                    <motion.p  className={styles.slug} key={sort.slug}  variants={navItem}
                                         onClick={() => {
                                             setArt(state => ({
                                                 ...state,
@@ -129,7 +128,7 @@ const Nav = () => {
                             })}
                             
                             <motion.div 
-                                variants={item} 
+                                variants={navItem} 
                                 className={styles.clear}
                                 onClick={() => setArt(state => ({...state, filterArray: []}))}
                                 style={{ visibility: art.filterArray.length === 0 ? 'hidden' : 'visible' }}

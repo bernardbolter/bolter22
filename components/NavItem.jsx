@@ -5,9 +5,8 @@ import { ArtContext } from '../providers/ArtProvider'
 import { navItem } from '../animations/nav'
 import styles from '../styles/nav-item.module.scss'
 
-const NavItem = ({ item, type }) => {
+const NavItem = ({ item }) => {
     const [art, setArt] = useContext(ArtContext)
-    console.log(item)
 
     return (
         <AnimatePresence>

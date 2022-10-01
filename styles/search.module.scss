@@ -14,7 +14,7 @@
         width: 200px;
         color: $light;
 
-        @media only screen and (min-width: 550px) {
+        @media only screen and (min-width: $s) {
             width: 100px;
         }
     }
@@ -35,7 +35,7 @@
         margin: 3px 0 0 0;
         cursor: pointer;
 
-        @media only screen and (min-width: 550px) {
+        @media only screen and (min-width: $s) {
             width: 20px;
             height: 20px;
         }

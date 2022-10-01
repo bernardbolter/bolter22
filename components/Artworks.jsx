@@ -10,7 +10,17 @@ const Artworks = () => {
 
     return (
         <div className={styles.container}>
-            <p>Under Construction</p>
+            {/* <p>Under Construction</p> */}
+            {art.filteredArtwork.map(artwork => {
+                console.log(artwork)
+                return (
+                    <div key={artwork.slug}>
+                        <p>{artwork.slug}</p>
+                        <p>width: {artwork.width}</p>
+                        <p>height: {artwork.height}</p>
+                    </div>
+                )
+            })}
         </div>
     )
 }

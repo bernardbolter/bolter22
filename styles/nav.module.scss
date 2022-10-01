@@ -73,7 +73,7 @@
         transition: opacity .5s ease-in-out; 
     }
 
-    @media only screen and (min-width: 550px) {
+    @media only screen and (min-width: $s) {
         svg {
             width: 75px;
             height: 75px;
@@ -127,7 +127,7 @@
     padding: 0;
     height: 9px;
 
-    @media only screen and (min-width: 550px) {
+    @media only screen and (min-width: $s) {
         font-size: 9px;
         height: 9px;
     }
@@ -144,7 +144,7 @@
     transition: all .2s ease;
     height: 21px;
 
-    @media only screen and (min-width: 550px) {
+    @media only screen and (min-width: $s) {
         font-size: 12px;
         padding: 3px 12px 3px 0;
     }
@@ -164,7 +164,7 @@
     position: absolute;
     margin: 6px 0 0 10px;
 
-    @media only screen and (min-width: 550px) {
+    @media only screen and (min-width: $s) {
         margin: 3px 0 0 10px;
     }
 }
@@ -200,7 +200,7 @@
         opacity: .8;
         transition: opacity .5s ease-in-out;
 
-        @media only screen and (min-width: 550px) {
+        @media only screen and (min-width: $s) {
             font-size: 11px;
         }
 
@@ -215,7 +215,7 @@
         height: 25px;
         overflow: visible;
 
-        @media only screen and (min-width: 550px) {
+        @media only screen and (min-width: $s) {
             width: 20px;
             height: 20px;
         }
