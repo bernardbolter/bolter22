@@ -12,13 +12,31 @@ const Name = () => {
 
     return (
         <AnimatePresence>
-            {Object.keys(art.cv).length !== 0 && (
+            {Object.keys(art.cv.info).length !== 0 && (
                 <motion.div
                     className={styles.container}
                 >    
-                    <h1 className={styles.name}>{art.cv.name}</h1>
-                    <h2 className={styles.info}>b.{art.cv.birthYear}, {art.cv.birthCity}</h2>
-                    <h2 className={styles.info}>lives and works in {art.cv.workCities[0]} and {art.cv.workCities[1]}</h2>
+                    <motion.h1
+                        className={styles.name}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1 }}
+                    >{art.cv.info.name}</motion.h1>
+                    <motion.h2 
+                        className={styles.info}
+                        initial={{ x: -200 }}
+                        animate={{ x: 0 }}
+                        exit={{ x: 0 }}
+                        transition={{ duration: 1 }}
+                    >b.{art.cv.info.birthYear}, {art.cv.info.birthCity}</motion.h2>
+                    <motion.h2 
+                        className={styles.info}
+                        initial={{ x: -200 }}
+                        animate={{ x: 0 }}
+                        exit={{ x: 0 }}
+                        transition={{ duration: 1.2 }}
+                    >lives and works in {art.cv.info.workCities[0]} {art.cv.info.workCities[1] !== undefined && `and ${art.cv.info.workCities[1]}`} {art.cv.info.workCities[2]!== undefined && ` and ${art.cv.info.workCities[2]}`}</motion.h2>
 
                 <a className={styles.instagram} href="https://www.instagram.com/bernardbolter" alt="Bernard Bolter's Instagram">
                     <div className={styles.arrow}>
@@ -50,13 +68,13 @@ const Name = () => {
                             animate="visible"
                             exit="exit"
                         >
-                            {art.cv.links.map(link => {
+                            {art.cv.info.links.map(link => {
                                 console.log("link: ", link)
                                 return (
                                 <motion.a 
                                     className={styles.link}
                                     href={link.url} 
-                                    key={link.display}
+                                    key={link.title}
                                     variants={fadeLink}
                                 >
                                     <div className={styles.linkArrow}>
@@ -64,7 +82,7 @@ const Name = () => {
                                         <span className={styles.linkShaft} />
                                         <span className={styles.linkBottom} />
                                     </div>
-                                    <p className={styles.linkText}>{link.display}</p>
+                                    <p className={styles.linkText}>{link.title}</p>
                                 </motion.a>
                             )})}
                         </motion.div>

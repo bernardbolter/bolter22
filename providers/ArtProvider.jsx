@@ -1,28 +1,28 @@
 import React, { useState, useEffect, createContext } from 'react'
 import { shuffle } from '../utils'
 
-import cvData from '../data/cv.json'
-
 export const ArtContext = createContext()
 
 const ArtProvider = ({ children }) => {
     const [art, setArt] = useState({
-        showFilterNav: false,
-        viewArtworks : false,
-        slideRight: false,
+        // artworks
         sourceArtwork: {},
         originalArtwork: [],
         filteredArtwork: [],
         currentArtwork: {},
         exhibitPosition: 0,
-        filterArray: [],
+        // cv
+        sourceCV: {},
+        cv: { 'info' : {}, 'education' : []},
+        // pages
+        sourcePages: {},
+        bio: '',
+        statement: '',
+        // navigation
+        showFilterNav: false,
+        viewArtworks : false,
         sortValue: 'random',
-        sourceCv: {},
-        cv: cvData,
-        sourceBio: {},
-        bio: {},
-        sourceStatement: {},
-        statement: {},
+        filterArray: [],
         searchValue: ""
     })
 
@@ -30,9 +30,9 @@ const ArtProvider = ({ children }) => {
     useEffect(() => {
         if (Object.keys(art.sourceArtwork).length !== 0) {
            var shapedArtwork = []
-           art.sourceArtwork.map(art => {
-            var newArt = art.node.artwork
-            newArt["slug"] = art.node.slug
+           art.sourceArtwork.nodes.map(art => {
+            var newArt = art.artwork
+            newArt["slug"] = art.slug
             shapedArtwork.push(newArt)
            })
            setArt(state => ({ 
@@ -44,49 +44,52 @@ const ArtProvider = ({ children }) => {
                 ...state,
                 currentArtwork: state.filteredArtwork[0]
             }))
-
-        //    art.sourceArtwork.data.map(art => {
-        //        var shapedArt = art.attributes
-        //        shapedArt["id"] = art.id
-        //        shapedArtwork.push(shapedArt)
-        //    })
-        //    console.log(shapedArtwork)
-        //    setArt(state => ({
-        //        ...state,
-        //        originalArtwork: shapedArtwork,
-        //        filteredArtwork: shuffle(shapedArtwork)
-        //    }))
         }
     }, [art.sourceArtwork])
 
-    // shape Strapi cv data into an object
-    // useEffect(() => {
-    //     if (Object.keys(art.sourceCv).length !== 0) {
-    //         console.log(art.sourceCv)
-    //         var shapedWorkCities = []
-    //         art.sourceCv.data.attributes.work_cities.map(city => {
-    //             shapedWorkCities.push(city.city)
-    //         })
-    //         var shapedExhibitions = []
-    //         art.sourceCv.data.attributes.exhibitions.map(exhibition => {
-    //             shapedExhibitions.push(exhibition.exhibition)
-    //         })
-    //         var shapedLinks = []
-    //         art.sourceCv.data.attributes.links.map(link => {
-    //             shapedLinks.push(link)
-    //         })
-    //         var shapedCv = {
-    //             name: art.sourceCv.data.attributes.name,
-    //             birthCity: art.sourceCv.data.attributes.birth_city,
-    //             birthYear: art.sourceCv.data.attributes.birth_date,
-    //             workCities: shapedWorkCities,
-    //             exhibitions: shapedExhibitions,
-    //             links: shapedLinks
-    //         }
-    //         setArt(state => ({ ...state, cv: shapedCv }))
-    //     }
-    // }, [art.sourceCv])
+    // shape Wordpress CV Entries
+    useEffect(() => {
+        if (Object.keys(art.sourceCV).length !== 0) {
+            const tempCV = { 'info' : {}, 'education' : []}
+            art.sourceCV.nodes.map(entry => {
+                if (entry.cv.category === "Info") {
+                    const tempCities = []
+                    if (entry.cv.workCity1 !== null) {tempCities.push(entry.cv.workCity1)}
+                    if (entry.cv.workCity2 !== null) {tempCities.push(entry.cv.workCity2)}
+                    const tempLinks = []
+                    if (entry.cv.link1 !== null) {tempLinks.push(entry.cv.link1)}
+                    if (entry.cv.link2 !== null) {tempLinks.push(entry.cv.link2)}
+                    tempCV.info = { 'name' : entry.cv.name,
+                                    'birthYear' : entry.cv.birthYear,
+                                    'birthCity' : entry.cv.birthCity,
+                                    'workCities' : tempCities,
+                                    'links' : tempLinks
+                                }
+                }
+                if (entry.cv.category === 'Education') {
+                    tempCV.education.push({
+                        'city' : entry.cv.city,
+                        'direction' : entry.cv.direction,
+                        'school' : entry.cv.school,
+                        'year' : entry.cv.year,
+                        'date' : entry.date 
+                        })
+                }
+            })
+            setArt(state => ({ ...state, cv: tempCV }))
+        }
+    }, [art.sourceCV])
 
+    // shape Wordpress Pages
+    useEffect(() => {
+        if (Object.keys(art.sourcePages).length !== 0) {
+            art.sourcePages.edges.map(page => {
+                if (page.node.slug === 'bio') {
+                    setArt(state => ({ ...state, bio: page.node.content }))
+                }
+            })
+        }
+    }, [art.sourcePages])
 
     return (
         <ArtContext.Provider

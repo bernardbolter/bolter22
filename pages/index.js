@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 
-import { getAllArtworks } from '../lib/api'
+import { getIndexData } from '../lib/api'
 
 import Head from 'next/head'
 import styles from '../styles/home.module.scss'
@@ -24,19 +24,17 @@ import { ArtContext } from '../providers/ArtProvider'
 // nav - 500
 // news - 600
 
-const Home = ({ allArtworks: { edges } }) => {
-  console.log("edges:", edges)
+const Home = ({ indexData }) => {
   const [art, setArt] = useContext(ArtContext)
   
   useEffect(() => {
-    setArt(state => ({
-        ...state, 
-        sourceArtwork: edges
-    }))
-  }, [edges])
-
-  console.log(art)
-
+    if (Object.keys(indexData).length !== 0) {
+      setArt(state => ({
+          ...state,
+          sourceArtwork: allData.artworks
+      }))
+    }
+  }, [allData])
 
   return (
     <div className={styles.container}>
@@ -58,10 +56,11 @@ const Home = ({ allArtworks: { edges } }) => {
 export default Home
 
 export async function getStaticProps() {
-  const allArtworks = await getAllArtworks()
+  const indexData = await getIndexData()
+
   return {
     props: {
-      allArtworks
+      indexData
     },
     revalidate: 10,
   }

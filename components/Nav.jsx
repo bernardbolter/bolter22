@@ -39,6 +39,22 @@ const Nav = () => {
     const size = useWindowSize()
 
     return (
+    <>
+        {/* navigation background */}
+        {size.width < 550 && (
+            <motion.div
+                className={styles.background}
+                style={{ 
+                    width: size.width, 
+                    height: size.height,
+                    zIndex: art.showFilterNav ? 301 : 1
+                }}
+                initial={{ translateX: size.width }}
+                animate={{ translateX: art.showFilterNav ? 0 : size.width }}
+                transition={{ duration: 1 }}
+            />
+        )}
+        
         <div className={styles.container}>
             <motion.p 
                 className={styles.filterText}
@@ -62,17 +78,6 @@ const Nav = () => {
                     )
                 })}
             </div>
-
-            {/* navigation background */}
-            {size.width < 550 && (
-                <motion.div
-                    className={styles.background}
-                    style={{ width: size.width, height: size.height }}
-                    initial={{ translateX: size.width }}
-                    animate={{ translateX: art.showFilterNav ? 0 : size.width }}
-                    transition={{ duration: 1 }}
-                />
-            )}
 
             <AnimatePresence>
 
@@ -149,6 +154,7 @@ const Nav = () => {
                 )}
             </AnimatePresence>
         </div>
+    </>
     )
 }
 

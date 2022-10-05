@@ -6,13 +6,13 @@ import styles from '../styles/artworks.module.scss'
 const Artworks = () => {
     // console.log(posts)
     const [art, setArt] = useContext(ArtContext)
-    console.log(art.filteredArtwork)
+    // console.log(art.filteredArtwork)
 
     return (
         <div className={styles.container}>
             {/* <p>Under Construction</p> */}
             {art.filteredArtwork.map(artwork => {
-                console.log(artwork)
+                // console.log(artwork)
                 return (
                     <div key={artwork.slug}>
                         <p>{artwork.slug}</p>
