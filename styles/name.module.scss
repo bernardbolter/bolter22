@@ -35,6 +35,57 @@
     padding: 0 0 0 5px;
 }
 
+.switchContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.toggleSwitch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 21px;
+}
+
+.toggleSwitch input[type="checkbox"] {
+    display: none;
+}
+
+.toggleSwitch .switch {
+    position: absolute;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 20px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: background-color 0.2s ease;
+}
+
+.toggleSwitch .switch::before {
+    position: absolute;
+    content: "";
+    left: 5px;
+    top: 3px;
+    width: 15px;
+    height: 15px;
+    background-color: #aaa;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.toggleSwitch input[type="checkbox"]:checked + .switch::before {
+    transform: translate(15px);
+    background-color: #999;
+}
+
+.toggleSwitch input[type="checkbox"]:checked + .switch {
+    background-color: #333;
+}
+
 .instagram {
     margin: 15px 0 0 5px;
     display: block;

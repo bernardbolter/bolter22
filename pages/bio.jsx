@@ -12,7 +12,7 @@ const Bio = () => {
 
     return (
         <div className={styles.container}>
-            <Name />
+            {/* <Name /> */}
             <Info />
             <div className={styles.content}>
               {art.bio.length !==0 && art.bio}

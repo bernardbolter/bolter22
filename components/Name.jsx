@@ -1,5 +1,6 @@
 import React, { useState, useContext} from 'react'
 import { ArtContext } from '../providers/ArtProvider'
+import { useTheme } from 'next-themes'
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { fadeLinks, fadeLink } from '../animations/name'
@@ -7,9 +8,11 @@ import { fadeLinks, fadeLink } from '../animations/name'
 import styles from '../styles/name.module.scss'
 
 const Name = () => {
-    const [art] = useContext(ArtContext)
+    const [art, setArt] = useContext(ArtContext)
     const [showLinks, setShowLinks] = useState(false)
-    console.log(art.artistInfo)
+    const { theme, setTheme } = useTheme()
+
+    const onToggle = () => setTheme(theme === 'light' ? 'dark' : 'light')
 
     return (
         <AnimatePresence>
@@ -38,6 +41,14 @@ const Name = () => {
                         exit={{ x: 0 }}
                         transition={{ duration: 1.2 }}
                     >lives and works in {art.artistInfo.workCities[0]} {art.artistInfo.workCities[1] !== undefined && `and ${art.artistInfo.workCities[1]}`} {art.artistInfo.workCities[2]!== undefined && ` and ${art.artistInfo.workCities[2]}`}</motion.h2>
+
+                    <div className={styles.switchContainer}>
+                        <label className={styles.toggleSwitch}>
+                            <input type="checkbox" checked={theme === 'light'} onChange={onToggle} />
+                            <span className={styles.switch} />
+                        </label>
+                        <p>switch to {theme === 'light' ? 'dark' : 'light'} mode</p>
+                    </div>
 
                 <a className={styles.instagram} href="https://www.instagram.com/bernardbolter" alt="Bernard Bolter's Instagram">
                     <div className={styles.arrow}>
