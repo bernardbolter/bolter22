@@ -5,12 +5,17 @@ export const ArtContext = createContext()
 
 const ArtProvider = ({ children }) => {
     const [art, setArt] = useState({
+        // theme
+        theme: 'light',
         // artworks
         sourceArtwork: {},
         originalArtwork: [],
         filteredArtwork: [],
         currentArtwork: {},
         exhibitPosition: 0,
+        // artist info
+        sourceInfo: {},
+        artistInfo: {},
         // cv
         sourceCV: {},
         cv: { 'info' : {}, 'education' : []},
@@ -25,6 +30,32 @@ const ArtProvider = ({ children }) => {
         filterArray: [],
         searchValue: ""
     })
+
+    // shape artis info data
+    useEffect(() => {
+        if (Object.keys(art.sourceInfo).length !== 0) {
+            const tempCities = []
+            const tempLinks = []
+            if (art.sourceInfo.artistInfo.workCity1 !== null) {tempCities.push(art.sourceInfo.artistInfo.workCity1)}
+            if (art.sourceInfo.artistInfo.workCity2 !== null) {tempCities.push(art.sourceInfo.artistInfo.workCity2)}
+            if (art.sourceInfo.artistInfo.workCity3 !== null) {tempCities.push(art.sourceInfo.artistInfo.workCity3)}
+            if (art.sourceInfo.artistInfo.link1 !== null) {tempLinks.push(art.sourceInfo.artistInfo.link1)}
+            if (art.sourceInfo.artistInfo.link2 !== null) {tempLinks.push(art.sourceInfo.artistInfo.link2)}
+            if (art.sourceInfo.artistInfo.link3 !== null) {tempLinks.push(art.sourceInfo.artistInfo.link3)}
+            if (art.sourceInfo.artistInfo.link4 !== null) {tempLinks.push(art.sourceInfo.artistInfo.link4)}
+            if (art.sourceInfo.artistInfo.link5 !== null) {tempLinks.push(art.sourceInfo.artistInfo.link5)}
+            setArt(state => ({
+                ...state,
+                artistInfo: {
+                    name: art.sourceInfo.artistInfo.name,
+                    birthyear: art.sourceInfo.artistInfo.birthYear,
+                    birthCity: art.sourceInfo.artistInfo.birthCity,
+                    workCities: tempCities,
+                    links: tempLinks
+                }
+            }))
+        }
+    }, [art.sourceInfo])
 
     //  shape Wordpress artwork data into an array
     useEffect(() => {

@@ -29,12 +29,14 @@ const Home = ({ indexData }) => {
   
   useEffect(() => {
     if (Object.keys(indexData).length !== 0) {
+      console.log(indexData)
       setArt(state => ({
           ...state,
-          sourceArtwork: allData.artworks
+          sourceArtwork: indexData.artworks,
+          sourceInfo: indexData.artistInfo
       }))
     }
-  }, [allData])
+  }, [indexData])
 
   return (
     <div className={styles.container}>

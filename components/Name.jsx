@@ -9,10 +9,11 @@ import styles from '../styles/name.module.scss'
 const Name = () => {
     const [art] = useContext(ArtContext)
     const [showLinks, setShowLinks] = useState(false)
+    console.log(art.artistInfo)
 
     return (
         <AnimatePresence>
-            {Object.keys(art.cv.info).length !== 0 && (
+            {Object.keys(art.artistInfo).length !== 0 && (
                 <motion.div
                     className={styles.container}
                 >    
@@ -22,21 +23,21 @@ const Name = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 1 }}
-                    >{art.cv.info.name}</motion.h1>
+                    >{art.artistInfo.name}</motion.h1>
                     <motion.h2 
                         className={styles.info}
                         initial={{ x: -200 }}
                         animate={{ x: 0 }}
                         exit={{ x: 0 }}
                         transition={{ duration: 1 }}
-                    >b.{art.cv.info.birthYear}, {art.cv.info.birthCity}</motion.h2>
+                    >b.{art.artistInfo.birthYear}, {art.artistInfo.birthCity}</motion.h2>
                     <motion.h2 
                         className={styles.info}
                         initial={{ x: -200 }}
                         animate={{ x: 0 }}
                         exit={{ x: 0 }}
                         transition={{ duration: 1.2 }}
-                    >lives and works in {art.cv.info.workCities[0]} {art.cv.info.workCities[1] !== undefined && `and ${art.cv.info.workCities[1]}`} {art.cv.info.workCities[2]!== undefined && ` and ${art.cv.info.workCities[2]}`}</motion.h2>
+                    >lives and works in {art.artistInfo.workCities[0]} {art.artistInfo.workCities[1] !== undefined && `and ${art.artistInfo.workCities[1]}`} {art.artistInfo.workCities[2]!== undefined && ` and ${art.artistInfo.workCities[2]}`}</motion.h2>
 
                 <a className={styles.instagram} href="https://www.instagram.com/bernardbolter" alt="Bernard Bolter's Instagram">
                     <div className={styles.arrow}>
@@ -68,7 +69,7 @@ const Name = () => {
                             animate="visible"
                             exit="exit"
                         >
-                            {art.cv.info.links.map(link => {
+                            {art.artistInfo.links.map(link => {
                                 console.log("link: ", link)
                                 return (
                                 <motion.a 
