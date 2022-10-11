@@ -1,8 +1,6 @@
 import React, { useState, useContext} from 'react'
 import { ArtContext } from '../providers/ArtProvider'
-
-import styled from 'styled-components'
-import SwitchMode from './SwitchMode/SwitchMode'
+import SwitchMode from './SwitchMode'
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { fadeLinks, fadeLink } from '../animations/name'
@@ -19,13 +17,13 @@ const Name = () => {
                     <motion.div
                         className={styles.container}
                     >    
-                        <NameStyled
+                        <motion.h1
                             className={styles.name}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 1 }}
-                        >{art.artistInfo.name}</NameStyled>
+                        >{art.artistInfo.name}</motion.h1>
                         <motion.h2 
                             className={styles.info}
                             initial={{ x: -200 }}
@@ -100,8 +98,3 @@ const Name = () => {
     )}
 
 export default Name
-
-const NameStyled = styled(motion.h1)`
-    color: var(--color-text-primary);
-    background: var(--color-bg-primary);
-`

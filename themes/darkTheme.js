@@ -1,6 +1,13 @@
-export const darkTheme = {
-    body: '#363537',
-    text: '#FAFAFA',
-    toggleBorder: '#6B8096',
-    background: '#999',
+const darkTheme = {
+    name: 'dark',
+    colors: {
+        fg: '#fff',
+        fgAccent: '#eee',
+        fgSub: '#ddd',
+        bg: '#000',
+        bgAccent: '#111',
+        bgSub: '#222'
+    }
 }
+
+export default darkTheme

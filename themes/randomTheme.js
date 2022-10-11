@@ -1,6 +1,12 @@
-export const randomTheme = {
-    body: '#363537',
-    text: '#FAFAFA',
-    toggleBorder: '#6B8096',
-    background: '#999',
+const randomTheme = {
+    colors: {
+        fg: 'yellow',
+        fgAccent: 'blue',
+        fgSub: 'red',
+        bg: 'purple',
+        bgAccent: 'orange',
+        bgSub: 'green'
+    }
 }
+
+export default randomTheme

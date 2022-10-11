@@ -1,6 +1,13 @@
-export const lightTheme = {
-    body: '#363537',
-    text: '#FAFAFA',
-    toggleBorder: '#6B8096',
-    background: '#999',
+const lightTheme = {
+    name: 'light',
+    colors: {
+        fg: '#000',
+        fgAccent: '#111',
+        fgSub: '#222',
+        bg: '#fff',
+        bgAccent: '#eee',
+        bgSub: '#ddd'
+    }
 }
+
+export default lightTheme

@@ -1,33 +1,29 @@
-import React, { useState, useMemo, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { ArtContext } from '../providers/ArtProvider'
 import { ThemeProvider } from 'styled-components'
+import ThemeStyle from '../styles/layout.styles'
 
 import lightTheme from '../themes/lightTheme'
 import darkTheme from '../themes/darkTheme'
-import randomTheme from '../themes/randomThemes'
+import randomTheme from '../themes/randomTheme'
 
 const Layout = ({ children }) => {
     const [art, setArt] = useContext(ArtContext)
+    let [currentTheme, setCurrentTheme] = useState(lightTheme)
 
-    const switchTheme = useMemo(() => {
-      switch(art.theme) {
-        case 'light':
-          return lightTheme
-          break;
-        case 'dark':
-          return darkThem
-          break;
-        case 'random':
-          setCurrentTheme(randomTheme)
-          break;
-        default:
-          setCurrentTheme(lightTheme)
+    useEffect(() => {
+      if (art.theme === 'dark') {
+        setCurrentTheme(darkTheme)
+      } else  {
+        setCurrentTheme(lightTheme)
       }
     }, [art.theme])
 
     return (
-      <ThemeProvider themes={currentTheme}>
-        {children}
+      <ThemeProvider theme={currentTheme}>
+        <ThemeStyle>
+          {children}
+        </ThemeStyle>
       </ThemeProvider>
     )
 }
