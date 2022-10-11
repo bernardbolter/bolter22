@@ -1,38 +1,35 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useState, useMemo, useContext } from 'react'
 import { ArtContext } from '../providers/ArtProvider'
-import { getAllData } from '../lib/api'
+import { ThemeProvider } from 'styled-components'
 
-const Layout = ({ allData, children }) => {
-    console.log(allData)
+import lightTheme from '../themes/lightTheme'
+import darkTheme from '../themes/darkTheme'
+import randomTheme from '../themes/randomThemes'
+
+const Layout = ({ children }) => {
     const [art, setArt] = useContext(ArtContext)
-  
-    useEffect(() => {
-      if (Object.keys(allData).length !== 0) {
-        setArt(state => ({
-            ...state,
-            sourceArtwork: allData.artworks,
-            sourceCV: allData.cVEntries,
-            sourcePages: allData.pages
-        }))
+
+    const switchTheme = useMemo(() => {
+      switch(art.theme) {
+        case 'light':
+          return lightTheme
+          break;
+        case 'dark':
+          return darkThem
+          break;
+        case 'random':
+          setCurrentTheme(randomTheme)
+          break;
+        default:
+          setCurrentTheme(lightTheme)
       }
-    }, [allData])
+    }, [art.theme])
 
     return (
-        <div>
-            {children}
-        </div>
+      <ThemeProvider themes={currentTheme}>
+        {children}
+      </ThemeProvider>
     )
 }
 
 export default Layout
-
-export async function getStaticProps() {
-    const allData = await getAllData()
-  
-    return {
-      props: {
-        allData
-      },
-      revalidate: 10,
-    }
-  }
