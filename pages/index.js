@@ -5,6 +5,7 @@ import { getIndexData } from '../lib/api'
 import Head from 'next/head'
 import styles from '../styles/home.module.scss'
 
+import Layout from '../components/Layout'
 import Artworks from '../components/Artworks'
 // import Exhibit from '../components/Exhibit'
 import Info from '../components/Info'
@@ -39,7 +40,7 @@ const Home = ({ indexData }) => {
   }, [indexData])
 
   return (
-    <div className={styles.container}>
+    <Layout>
       <Head>
         <title>Bernard Bolter Web Portal</title>
         <meta name="description" content="Bernard Bolter Web Portal" />
@@ -51,7 +52,7 @@ const Home = ({ indexData }) => {
       <Artworks />
       <Info />
       <News />
-    </div>
+    </Layout>
   )
 }
 
