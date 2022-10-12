@@ -7,6 +7,7 @@ const SwitchModeStyle = styled.div`
         justify-content: center;
         align-items: center;
         position: relative;
+        cursor: pointer;
 
         input {
             display: none;
@@ -17,13 +18,20 @@ const SwitchModeStyle = styled.div`
             height: 20px;
             border-radius: 10px;
             display: block;
-            background: ${props => props.theme.colors.bgAccent};
+            background: ${props => props.theme.colors.fgAccent};
+        }
+
+        .light {
+            color: ${props => props.theme.colors.fgSub}
+        }
+
+        .dark {
+            color: ${props => props.theme.colors.fgSub}
         }
 
         p {
-            color: ${props => props.theme.colors.fgAccent};
-            font-size: 20px;
-            font-weight
+            font-size: 12px;
+            font-weight: 600;
         }
     }
 `

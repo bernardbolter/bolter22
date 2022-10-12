@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { ArtContext } from '../providers/ArtProvider'
 import { ThemeProvider } from 'styled-components'
-import ThemeStyle from '../styles/layout.styles'
+import LayoutStyle from '../styles/layout.styles'
 
 import lightTheme from '../themes/lightTheme'
 import darkTheme from '../themes/darkTheme'
@@ -21,9 +21,11 @@ const Layout = ({ children }) => {
 
     return (
       <ThemeProvider theme={currentTheme}>
-        <ThemeStyle>
-          {children}
-        </ThemeStyle>
+        <LayoutStyle>
+          <div className="layout-wrapper">
+            {children}
+          </div>
+        </LayoutStyle>
       </ThemeProvider>
     )
 }
