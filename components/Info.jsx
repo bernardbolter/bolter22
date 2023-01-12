@@ -1,21 +1,17 @@
 import React from 'react'
 import Link from 'next/link'
 
-import styles from '../styles/info.module.scss'
+import InfoStyle from '../styles/info.style'
 
 const Info = () => {
     return (
-        <div className={styles.container}>
-            <Link href="/bio">
-                <a>Bio</a>
-            </Link>
-            <Link href="/cv">
-                <a>CV</a>
-            </Link>
-            <Link href="/statement">
-                <a>Statement</a>
-            </Link>
-        </div>
+        <InfoStyle>
+            <div className="info-wrapper">
+                <Link href="/bio">Bio</Link>
+                <Link href="/cv">CV</Link>
+                <Link href="/statement">Statement</Link>
+            </div>
+        </InfoStyle>
     )
 }
 

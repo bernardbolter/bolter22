@@ -33,6 +33,7 @@ const ArtProvider = ({ children }) => {
 
     // shape artis info data
     useEffect(() => {
+        console.log(art.sourceInfo)
         if (Object.keys(art.sourceInfo).length !== 0) {
             const tempCities = []
             const tempLinks = []
@@ -64,6 +65,7 @@ const ArtProvider = ({ children }) => {
            art.sourceArtwork.nodes.map(art => {
             var newArt = art.artwork
             newArt["slug"] = art.slug
+            newArt["title"] = art.title
             shapedArtwork.push(newArt)
            })
            setArt(state => ({ 

@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { LazyMotion, AnimatePresence, domAnimation } from 'framer-motion'
 
 import ArtProvider from '../providers/ArtProvider'
+import ThemeStyleProvider from '../providers/ThemeStyleProvider'
+import Theme from '../components/Theme'
 
 import '../styles/globals.scss'
 
@@ -15,9 +17,13 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <ArtProvider>
       <LazyMotion features={domAnimation}>
-        <AnimatePresence>
-            {isMounted && <Component {...pageProps} key={router.route} />}
-        </AnimatePresence>
+        <ThemeStyleProvider>
+          <Theme>
+            <AnimatePresence>
+                {isMounted && <Component {...pageProps} key={router.route} />}
+            </AnimatePresence>
+          </Theme>
+        </ThemeStyleProvider>
       </LazyMotion>
     </ArtProvider>
   )

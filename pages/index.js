@@ -30,7 +30,7 @@ const Home = ({ indexData }) => {
   
   useEffect(() => {
     if (Object.keys(indexData).length !== 0) {
-      console.log(indexData)
+      console.log(indexData.artworks)
       setArt(state => ({
           ...state,
           sourceArtwork: indexData.artworks,
