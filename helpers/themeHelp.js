@@ -8,7 +8,7 @@ export const generateResponsiveTextCss = (props, breakpoints, selectors) => {
   let cssCode = `${selectors} {`;
 
   if (props.default) {
-    console.log(props.default);
+    // console.log(props.default);
     cssCode += `${generateTextCss(props.default)}`;
   }
 
@@ -86,7 +86,7 @@ let generateTextCss = props => {
     textCss += `cursor: ${props.cursor};`;
   }
 
-  console.log("gen text: ", textCss);
+  // console.log("gen text: ", textCss);
 
   return textCss;
 };

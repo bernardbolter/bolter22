@@ -47,7 +47,7 @@ const ThemeStyle = styled.div`
       "a, .link"
     );
 
-    console.log(responsiveCss);
+    // console.log(responsiveCss);
 
     return responsiveCss;
   }}

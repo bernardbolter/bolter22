@@ -39,7 +39,7 @@ const CustomForm = ({ status, message, onValidated }) => {
             <div className="news-form">
                 <input
                     type="text"
-                    placeholder="enter email"
+                    placeholder="signup for news"
                     label="Email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}

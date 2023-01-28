@@ -10,11 +10,12 @@ const SearchStyle = styled.div`
     margin: 0 10px 0 0;
 
     input {
-        border: 1px solid ${props => pSBC(0.4, props.theme.colors.fg)};
+        border: none;
         margin: 0 7px 0 0;
-        padding: 3px 5px;
+        padding: 5px 10px;
         width: 150px;
-        color: ${props => pSBC(0.4, props.theme.colors.fg)};
+        background: ${props => pSBC(-0.3, props.theme.colors.bg)};
+        color: ${props => pSBC(0.3, props.theme.colors.fg)};
 
         @media only screen and (min-width: ${props =>
           props.theme.breakpoints.mobile}) {
@@ -23,8 +24,8 @@ const SearchStyle = styled.div`
     }
 
     input::placeholder {
-        color: ${props => pSBC(0.4, props.theme.colors.fg)};
-        font-size: 10px;
+        color: ${props => pSBC(0.3, props.theme.colors.fg)};
+        font-size: 12px;
     }
 
     input:focus {

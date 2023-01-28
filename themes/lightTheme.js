@@ -41,6 +41,22 @@ const lightTheme = {
       lineHeight: "22px",
       color: colors.fg,
     },
+    mobile: {
+      fontSize: "20px",
+      lineHeight: "24px",
+    },
+    tablet: {
+      fontSize: "24px",
+      lineHeight: "28px",
+    },
+    desktop: {
+      fontSize: "28px",
+      lineHeight: "32px",
+    },
+    jumbo: {
+      fontSize: "34px",
+      lineHeight: "40px",
+    },
   },
   // h2
   headline: {
@@ -82,6 +98,22 @@ const lightTheme = {
       margin: "0px",
       padding: "0px",
       color: pSBC(0.2, colors.fg),
+    },
+    mobile: {
+      fontSize: "12px",
+      lineHeight: "16px",
+    },
+    tablet: {
+      fontSize: "13px",
+      lineHeight: "17px",
+    },
+    desktop: {
+      fontSize: "14px",
+      lineHeight: "19px",
+    },
+    jumbo: {
+      fontSize: "16px",
+      lineHeight: "22px",
     },
   },
   // p

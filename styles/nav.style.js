@@ -20,7 +20,7 @@ const NavStyle = styled.div`
   }
 
   .nav-background {
-    background: ${props => pSBC(0.2, props.theme.colors.bg)}
+    background: ${props => pSBC(0.1, props.theme.colors.bg)};
     opacity: 0.9;
     position: fixed;
   }

@@ -37,7 +37,7 @@ const ThemeStyleProvider = ({ children }) => {
             })
         }
 
-        console.log(newTheme)
+        // console.log(newTheme)
         
         if (Object.keys(newTheme).length !== 0) {
             setThemeStyle(state => ({...state, theme: newTheme }))
