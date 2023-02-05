@@ -10,6 +10,11 @@ const NewsStyle = styled.div`
     width: 93%;
     max-width: 320px;
 
+    @media only screen and (min-width: ${props =>
+        props.theme.breakpoints.mobile}px) {
+      right: 15px;
+    }
+
     .news-form {
       display: flex;
       flex-direction: row;

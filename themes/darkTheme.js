@@ -41,6 +41,22 @@ const darkTheme = {
       lineHeight: "22px",
       color: colors.fg,
     },
+    mobile: {
+      fontSize: "20px",
+      lineHeight: "24px",
+    },
+    tablet: {
+      fontSize: "24px",
+      lineHeight: "28px",
+    },
+    desktop: {
+      fontSize: "28px",
+      lineHeight: "32px",
+    },
+    jumbo: {
+      fontSize: "34px",
+      lineHeight: "40px",
+    },
   },
   // h2
   headline: {

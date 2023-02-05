@@ -17,6 +17,14 @@ const InfoStyle = styled.div`
       ${props => props.theme.spacing.xlSpace} 55px;
     border-bottom: 1px solid ${props => pSBC(0.5, props.theme.colors.fg)};
 
+    @media only screen and (min-width: ${props =>
+        props.theme.breakpoints.mobile}px) {
+      border-bottom: none;
+      flex-direction: column;
+      margin: 0 0 10px 10px;
+      align-items: flex-start;
+    }
+
     a {
       color: ${props => pSBC(0.2, props.theme.colors.fg)};
       font-size: 16px;

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import ArtworkStyles from '../styles/artwork.style'
 
 const artLoader = ({ src }) => {
-    return `https://madeinberlin.net/artwork/${src}_xl.jpg`
+    return `https://thefilterman.de/artwork/${src}_xl.jpg`
 }
 
 const Artwork = ({artwork}) => {

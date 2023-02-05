@@ -6,29 +6,31 @@ import { getBioData } from '../lib/api'
 import Info from '../components/Info'
 import Name from '../components/Name'
 
-import styles from '../styles/bio.module.scss'
+import BioStyle from '../styles/bio.style'
 
 const Bio = ({ bioData }) => {
     const [art, setArt] = useContext(ArtContext)
 
     useEffect(() => {
         if (Object.keys(bioData).length !== 0) {
-            console.log("send info")
             setArt(state => ({
                 ...state,
-                sourceInfo: bioData.artistInfo
+                sourceInfo: bioData.artistInfo,
+                bio: bioData.page.content
             }))
         }
     }, [bioData])
 
     return (
-        <div className={styles.container}>
-            <Name />
-            <Info />
-            <div className={styles.content}>
-              {art.bio.length !==0 && art.bio}
+        <BioStyle>
+            <div className="bio-container">
+                <Name />
+                <Info />
+                <div className="bio-content"
+                    dangerouslySetInnerHTML={{ __html: art.bio }}
+                />
             </div>
-        </div>
+        </BioStyle>
     )
 }
 

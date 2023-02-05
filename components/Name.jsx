@@ -11,7 +11,7 @@ const Name = () => {
     const [art, setArt] = useContext(ArtContext)
     const [showLinks, setShowLinks] = useState(false)
     const router = useRouter()
-    console.log(router)
+    console.log(art.artistInfo)
 
     return (
         <AnimatePresence>
@@ -32,7 +32,7 @@ const Name = () => {
                                     animate={{ x: 0 }}
                                     exit={{ x: 0 }}
                                     transition={{ duration: 1 }}
-                                >b.{art.artistInfo.birthyear}, {art.artistInfo.birthCity}
+                                >b.{art.artistInfo.birthyear}, {art.artistInfo.birthcity}
                                 </motion.h5>
                                 <motion.h5
                                     initial={{ x: -200 }}

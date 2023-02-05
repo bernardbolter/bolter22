@@ -18,9 +18,8 @@ const ArtProvider = ({ children }) => {
         artistInfo: {},
         // cv
         sourceCV: {},
-        cv: { 'info' : {}, 'education' : []},
+        cv: {},
         // pages
-        sourcePages: {},
         bio: '',
         statement: '',
         // navigation
@@ -31,15 +30,15 @@ const ArtProvider = ({ children }) => {
         searchValue: ""
     })
 
-    // shape artis info data
+    // shape artist info data
     useEffect(() => {
         console.log(art.sourceInfo)
         if (Object.keys(art.sourceInfo).length !== 0) {
             const tempCities = []
             const tempLinks = []
-            if (art.sourceInfo.artistInfo.workCity1 !== null) {tempCities.push(art.sourceInfo.artistInfo.workCity1)}
-            if (art.sourceInfo.artistInfo.workCity2 !== null) {tempCities.push(art.sourceInfo.artistInfo.workCity2)}
-            if (art.sourceInfo.artistInfo.workCity3 !== null) {tempCities.push(art.sourceInfo.artistInfo.workCity3)}
+            if (art.sourceInfo.artistInfo.workcity1 !== null) {tempCities.push(art.sourceInfo.artistInfo.workcity1)}
+            if (art.sourceInfo.artistInfo.workcity2 !== null) {tempCities.push(art.sourceInfo.artistInfo.workcity2)}
+            if (art.sourceInfo.artistInfo.workcity3 !== null) {tempCities.push(art.sourceInfo.artistInfo.workcity3)}
             if (art.sourceInfo.artistInfo.link1 !== null) {tempLinks.push(art.sourceInfo.artistInfo.link1)}
             if (art.sourceInfo.artistInfo.link2 !== null) {tempLinks.push(art.sourceInfo.artistInfo.link2)}
             if (art.sourceInfo.artistInfo.link3 !== null) {tempLinks.push(art.sourceInfo.artistInfo.link3)}
@@ -49,8 +48,8 @@ const ArtProvider = ({ children }) => {
                 ...state,
                 artistInfo: {
                     name: art.sourceInfo.artistInfo.name,
-                    birthyear: art.sourceInfo.artistInfo.birthYear,
-                    birthCity: art.sourceInfo.artistInfo.birthCity,
+                    birthyear: art.sourceInfo.artistInfo.birthyear,
+                    birthcity: art.sourceInfo.artistInfo.birthcity,
                     workCities: tempCities,
                     links: tempLinks
                 }
@@ -63,7 +62,7 @@ const ArtProvider = ({ children }) => {
         if (Object.keys(art.sourceArtwork).length !== 0) {
            var shapedArtwork = []
            art.sourceArtwork.nodes.map(art => {
-            var newArt = art.artwork
+            var newArt = art.artworkFields
             newArt["slug"] = art.slug
             newArt["title"] = art.title
             shapedArtwork.push(newArt)
@@ -83,46 +82,39 @@ const ArtProvider = ({ children }) => {
     // shape Wordpress CV Entries
     useEffect(() => {
         if (Object.keys(art.sourceCV).length !== 0) {
-            const tempCV = { 'info' : {}, 'education' : []}
-            art.sourceCV.nodes.map(entry => {
-                if (entry.cv.category === "Info") {
-                    const tempCities = []
-                    if (entry.cv.workCity1 !== null) {tempCities.push(entry.cv.workCity1)}
-                    if (entry.cv.workCity2 !== null) {tempCities.push(entry.cv.workCity2)}
-                    const tempLinks = []
-                    if (entry.cv.link1 !== null) {tempLinks.push(entry.cv.link1)}
-                    if (entry.cv.link2 !== null) {tempLinks.push(entry.cv.link2)}
-                    tempCV.info = { 'name' : entry.cv.name,
-                                    'birthYear' : entry.cv.birthYear,
-                                    'birthCity' : entry.cv.birthCity,
-                                    'workCities' : tempCities,
-                                    'links' : tempLinks
-                                }
+            var newCV = {
+                "SOLO" : [],
+                "GROUP" : [],
+                "PERFORMANCE" : [],
+                "EDUCATION" : [],
+                "PUBLICATIONS" : [],
+                "ORGANIZATIONS" : []
+            }
+            console.log(art.sourceCV)
+            art.sourceCV.nodes.map(cv => {
+                console.log(cv.cv_info_fields.section)
+                if (cv.cv_info_fields.section === "SOLO") {
+                    newCV['SOLO'].push(cv.cv_info_fields)
                 }
-                if (entry.cv.category === 'Education') {
-                    tempCV.education.push({
-                        'city' : entry.cv.city,
-                        'direction' : entry.cv.direction,
-                        'school' : entry.cv.school,
-                        'year' : entry.cv.year,
-                        'date' : entry.date 
-                        })
+                if (cv.cv_info_fields.section === "GROUP") {
+                    newCV['GROUP'].push(cv.cv_info_fields)
+                }
+                if (cv.cv_info_fields.section === "PERFORMANCE") {
+                    newCV['PERFORMANCE'].push(cv.cv_info_fields)
+                }
+                if (cv.cv_info_fields.section === "EDUCATION") {
+                    newCV['EDUCATION'].push(cv.cv_info_fields)
+                }
+                if (cv.cv_info_fields.section === "PUBLICATIONS") {
+                    newCV['PUBLICATIONS'].push(cv.cv_info_fields)
+                }
+                if (cv.cv_info_fields.section === "ORGANIZATIONS") {
+                    newCV['ORGANIZATIONS'].push(cv.cv_info_fields)
                 }
             })
-            setArt(state => ({ ...state, cv: tempCV }))
+            console.log(newCV)
         }
     }, [art.sourceCV])
-
-    // shape Wordpress Pages
-    useEffect(() => {
-        if (Object.keys(art.sourcePages).length !== 0) {
-            art.sourcePages.edges.map(page => {
-                if (page.node.slug === 'bio') {
-                    setArt(state => ({ ...state, bio: page.node.content }))
-                }
-            })
-        }
-    }, [art.sourcePages])
 
     return (
         <ArtContext.Provider
