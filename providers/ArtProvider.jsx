@@ -92,7 +92,6 @@ const ArtProvider = ({ children }) => {
             }
             console.log(art.sourceCV)
             art.sourceCV.nodes.map(cv => {
-                console.log(cv.cv_info_fields.section)
                 if (cv.cv_info_fields.section === "SOLO") {
                     newCV['SOLO'].push(cv.cv_info_fields)
                 }
@@ -112,7 +111,7 @@ const ArtProvider = ({ children }) => {
                     newCV['ORGANIZATIONS'].push(cv.cv_info_fields)
                 }
             })
-            console.log(newCV)
+            setArt(state => ({ ...state, cv: newCV }))
         }
     }, [art.sourceCV])
 
