@@ -23,9 +23,10 @@ const Name = () => {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 1 }}
+                            onClick={() => router.push("/")}
                         >{art.artistInfo.name}</motion.h1>
 
-                        {(router.route === "/" || router.route === "/bio") && (
+                        {(router.route === "/" || router.route === "/cv") && (
                             <div className="name-info">
                                 <motion.h5
                                     initial={{ x: -200 }}

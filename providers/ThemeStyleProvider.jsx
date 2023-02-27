@@ -21,10 +21,10 @@ const ThemeStyleProvider = ({ children }) => {
 
     useEffect(() => {
         themeStyle.allThemes.forEach(theme => {
-            console.log(theme)
+            // console.log(theme)
             setThemeStyle(state => ({ ...state, themesNames: [...state.themeNames, theme.name] }))
         })
-        console.log(themeStyle.themeNames)
+        // console.log(themeStyle.themeNames)
     }, [])
 
     useEffect(() => {

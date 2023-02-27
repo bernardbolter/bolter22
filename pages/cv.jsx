@@ -1,16 +1,19 @@
 import React, { useEffect, useContext} from 'react'
 import { ArtContext } from '../providers/ArtProvider'
+import { useRouter } from 'next/router'
 
 import { getCVData } from '../lib/api'
 
 import Info from '../components/Info'
 import Name from '../components/Name'
 
+import Arrow from '../svg/arrow'
+
 import CVStyle from '../styles/cv.style'
 
 const CV = ({ cvData }) => {
     const [art, setArt] = useContext(ArtContext)
-    console.log(art.cv)
+    const router = useRouter()
 
     useEffect(() => {
         if (Object.keys(cvData).length !== 0) {
@@ -27,13 +30,19 @@ const CV = ({ cvData }) => {
             <div className="cv-container">
                 <Info />
                 <Name />
+                <div 
+                    className="cv-back"
+                    onClick={() => router.push('/')}    
+                >
+                    <Arrow />
+                </div>
                 {Object.keys(art.cv).length !== 0 &&
                     <div
                         className="cv-content"
                     >
                         <h1>SOLO</h1>
-                        {art.cv.SOLO.map(solo => (
-                            <div className="cv-entry">
+                        {art.cv.SOLO.map((solo, i) => (
+                            <div className="cv-entry" key={i}>
                                 <h4>{solo.year}</h4>
                                 <h3>{solo.gallery}</h3>
                                 <h2>'{solo.title}'</h2>
@@ -41,8 +50,8 @@ const CV = ({ cvData }) => {
                             </div>
                         ))}
                         <h1>GROUP</h1>
-                        {art.cv.GROUP.map(group => (
-                            <div className="cv-entry">
+                        {art.cv.GROUP.map((group, i) => (
+                            <div className="cv-entry" key={i}>
                                 <h4>{group.year}</h4>
                                 <h3>{group.gallery}</h3>
                                 <h2>'{group.title}'</h2>
@@ -50,8 +59,8 @@ const CV = ({ cvData }) => {
                             </div>
                         ))}
                         <h1>PERFORMANCE</h1>
-                        {art.cv.PERFORMANCE.map(performance => (
-                            <div className="cv-entry">
+                        {art.cv.PERFORMANCE.map((performance, i) => (
+                            <div className="cv-entry" key={i}>
                                 <h4>{performance.year}</h4>
                                 <h3>{performance.gallery}</h3>
                                 <h2>'{performance.title}'</h2>
@@ -59,8 +68,8 @@ const CV = ({ cvData }) => {
                             </div>
                         ))}
                         <h1>EDUCATION</h1>
-                        {art.cv.EDUCATION.map(edu => (
-                            <div className="cv-entry">
+                        {art.cv.EDUCATION.map((edu, i) => (
+                            <div className="cv-entry" key={i}>
                                 <h4>{edu.year}</h4>
                                 <h2>{edu.school}</h2>
                                 <h3>'{edu.title}'</h3>
@@ -68,16 +77,16 @@ const CV = ({ cvData }) => {
                             </div>
                         ))}
                         <h1>PUBLICATIONS</h1>
-                        {art.cv.PUBLICATIONS.map(pubs => (
-                            <div className="cv-entry">
+                        {art.cv.PUBLICATIONS.map((pubs, i) => (
+                            <div className="cv-entry" key={i}>
                                 <h4>{pubs.year}</h4>
                                 <h2>{pubs.title}</h2>
                                 <h5>{pubs.role}</h5>
                             </div>
                         ))}
                         <h1>ORGANIZATIONS</h1>
-                        {art.cv.ORGANIZATIONS.map(orgs => (
-                            <div className="cv-entry">
+                        {art.cv.ORGANIZATIONS.map((orgs, i) => (
+                            <div className="cv-entry" key={i}>
                                 <h4>{orgs.year}</h4>
                                 <h2>{orgs.title}</h2>
                                 <h5>{orgs.role}</h5>
@@ -94,7 +103,7 @@ export default CV
 
 export async function getStaticProps() {
     const cvData = await getCVData()
-    // console.log(cvData)
+    console.log(cvData)
 
     return {
         props: {
