@@ -3,22 +3,35 @@ import { pSBC } from "../utils";
 
 const InfoStyle = styled.div`
   .info-wrapper {
-    position: fixed;
-    z-index: 400;
-    left: 0;
-    bottom: 0;
+    position: absolute;
+    z-index: 300;
+    left: auto;
+    bottom: auto;
+    right: 10px;
+    top: 70px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: calc(100% - (${props => props.theme.spacing.xlSpace} * 2));
-    max-width: 320px;
-    margin: ${props => props.theme.spacing.xlSpace}
-      ${props => props.theme.spacing.xlSpace} 55px;
-    border-bottom: 1px solid ${props => pSBC(0.5, props.theme.colors.fg)};
+    width: 220px;
+    margin: 0;
+    border-bottom: none;
+
+    @media only screen and (min-width: 410px) {
+      top: 100px;
+    }
 
     @media only screen and (min-width: ${props =>
         props.theme.breakpoints.mobile}px) {
+      left: 0;
+      bottom: 0;
+      right: auto;
+      top: auto;
+      width: calc(100% - (${props => props.theme.spacing.xlSpace} * 2));
+      max-width: 320px;
+      margin: ${props => props.theme.spacing.xlSpace}
+        ${props => props.theme.spacing.xlSpace} 55px;
+      border-bottom: 1px solid ${props => pSBC(0.5, props.theme.colors.fg)};
       border-bottom: none;
       flex-direction: column;
       margin: 0 0 10px 10px;

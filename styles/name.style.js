@@ -3,16 +3,25 @@ import { pSBC } from "../utils";
 
 const NameStyle = styled.div`
   .name-wrapper {
-    position: fixed;
+    position: absolute;
     left: ${props => props.theme.spacing.lgSpace};
     top: ${props => props.theme.spacing.lgSpace};
     margin: 0;
     padding: 0;
+
+    h1 {
+      margin: 0;
+      padding: 3px 5px;
+      position: fixed;
+      z-index: 401;
+      background: rgba(240, 240, 240, 0.7);
+    }
   }
 
   .name-info {
-    margin: ${props => props.theme.spacing.lgSpace} 0 0
-      ${props => props.theme.spacing.smSpace};
+    margin: 28px 0 0 ${props => props.theme.spacing.smSpace};
+    position: relative;
+    z-index: 401;
   }
 
   .name-insta-svg {
@@ -99,6 +108,35 @@ const NameStyle = styled.div`
   .name-link-svg {
     width: 100%;
     fill: ${props => props.theme.colors.fg};
+  }
+
+  .name-links-container {
+    position: relative;
+    z-index: 401;
+    top: auto;
+    left: auto;
+
+    @media only screen and (min-width: ${props =>
+        props.theme.breakpoints.mobile}px) {
+      position: absolute;
+      top: -9px;
+      left: 250px;
+    }
+
+    @media only screen and (min-width: ${props =>
+        props.theme.breakpoints.tablet}px) {
+      left: 280px;
+    }
+
+    @media only screen and (min-width: ${props =>
+        props.theme.breakpoints.desktop}px) {
+      left: 320px;
+    }
+
+    @media only screen and (min-width: ${props =>
+        props.theme.breakpoints.jumbo}px) {
+      left: 390px;
+    }
   }
 
   .name-links {

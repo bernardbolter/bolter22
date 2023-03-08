@@ -20,6 +20,8 @@ const NewsStyle = styled.div`
       flex-direction: row;
       jusrify-content: flex-end;
       align-items: center;
+      background: rgba(240, 240, 240, 0.9);
+      padding: 6px;
     }
 
     input {
