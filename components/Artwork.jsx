@@ -18,6 +18,7 @@ const Artwork = ({artwork}) => {
     const [artWidth, setArtWidth] = useState(0)
     const [artHeight, setArtHeight] = useState(0)
     const theme = useTheme()
+    // console.log(artwork)
 
     useEffect(() => {
         var responsiveWidth
@@ -107,6 +108,8 @@ const Artwork = ({artwork}) => {
                     alt={`${artwork.title} from the ${artwork.series}`}
                     width={artWidth}
                     height={artHeight}
+                    placeholder="blur"
+                    blurDataURL="/globe.gif"
                  />
                  <div 
                     className="artwork-info-container"
@@ -114,8 +117,18 @@ const Artwork = ({artwork}) => {
                         width: artWidth,
                         bottom: ((artContainer - artHeight) / 2) - 15
                     }}    
-                >
-                    <p className="artwork-title">{artwork.title}</p>
+                >   
+                    <div className="artwork-title-container">
+                        <p className="artwork-title">
+                            {artwork.title}{artwork.year && `\u00A0\u00A0\u00A0||\u00A0\u00A0\u00A0${artwork.year}`}
+                        </p>
+                        {artwork.forsale && (
+                            <div 
+                                className="artwork-title-series-box series-box-round" 
+                                style={{ backgroundColor: theme.colors.sale}}
+                            />
+                        )}
+                    </div>
                     <div 
                         className="artwork-title-series-box" 
                         style={{ backgroundColor: theme.colors[decideColor(artwork.series)] }}

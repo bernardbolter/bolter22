@@ -36,66 +36,61 @@ const InfoStyle = styled.div`
       flex-direction: column;
       margin: 0 0 10px 10px;
       align-items: flex-start;
+      position: fixed;
     }
 
-    a {
+    .info-link {
       color: ${props => pSBC(0.2, props.theme.colors.fg)};
       font-size: 16px;
       text-decoration: none;
-      margin: ${props => props.theme.spacing.lgSpace} 0;
-      padding: 5px 10px 4px 8px;
+      margin: ${props => props.theme.spacing.lgSpace} 10px;
+      padding: 5px 0;
       position: relative;
       transition: all 0.35s ease;
+      position: relative;
+      z-index: 251;
     }
 
-    a:hover {
+    .info-link:hover {
       color: ${props => props.theme.colors.fg};
       transition: all 0.35s ease;
     }
 
-    a::before,
-    a::after {
+    .info-link::after {
       content: "";
-      height: 10px;
-      width: 10px;
       position: absolute;
-      transition: all 0.35s ease;
-      opacity: 0;
-    }
-
-    a::before {
-      content: "";
-      right: 0;
-      top: 0;
-      border-top: ${props => props.theme.spacing.smSpace} solid
-        ${props => pSBC(0.2, props.theme.colors.fg)};
-      border-right: ${props => props.theme.spacing.smSpace} solid
-        ${props => pSBC(0.2, props.theme.colors.fg)};
-      transform: translate(-100%, 50%);
-    }
-
-    a:after {
-      content: "";
-      left: 0;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
       bottom: 0;
-      border-bottom: ${props => props.theme.spacing.smSpace} solid
-        ${props => pSBC(0.2, props.theme.colors.fg)};
-      border-left: ${props => props.theme.spacing.smSpace} solid
-        ${props => pSBC(0.2, props.theme.colors.fg)};
-      transform: translate(100%, -50%);
+      left: 0;
+      background-color: ${props => pSBC(0.4, props.theme.colors.fg)};
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
     }
+
+    .info-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
+
+  .info-back {
+    position: fixed;
+    z-index: 250;
+    bottom: -20px;
+    left: -20px;
+    width: 120px;
+    height: 200px;
+    background: ${props => props.theme.colors.bg};
+    opacity: 0.5;
+    display: none;
+    transform: rotate(-9deg);
+    border-top-right-radius: 100px;
 
     @media only screen and (min-width: ${props =>
-        props.theme.breakpoints.tablet}) {
-      a:hover:before,
-      a:hover:after {
-        transform: translate(0, 0);
-        opacity: 1;
-      }
-
-      a:hover {
-        color: ${props => props.theme.colors.fg};
-      }
+        props.theme.breakpoints.mobile}px) {
+      display: block;
     }
   }
 `;

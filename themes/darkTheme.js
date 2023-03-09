@@ -11,7 +11,7 @@ const colors = {
   bg: "#343434",
   fg: "#dcdcdc",
   warning: "#ffcccb",
-  sale: "#DAA520",
+  sale: "#85bb65",
   war: "#6D2E46",
   ach: "#9DC3C2",
   meg: "#FC7753",

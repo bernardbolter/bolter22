@@ -17,7 +17,7 @@ export const randomTheme = mode => {
     bg: mode === "light" ? randomColor(235, 255) : randomColor(10, 30),
     fg: mode === "light" ? randomColor(10, 30) : randomColor(235, 255),
     warning: "#d11a2a",
-    sale: "#DAA520",
+    sale: "#85bb65",
     war: "#6D2E46",
     ach: "#9DC3C2",
     meg: "#FC7753",

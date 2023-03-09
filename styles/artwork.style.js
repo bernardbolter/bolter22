@@ -19,8 +19,15 @@ const ArtworkStyle = styled.div`
     position: absolute;
   }
 
+  .artwork-title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
   .artwork-title {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 200;
     color: rgba(0, 0, 0, 0.6);
     line-height: 1;
@@ -31,6 +38,11 @@ const ArtworkStyle = styled.div`
   .artwork-title-series-box {
     width: 10px;
     height: 10px;
+  }
+
+  .series-box-round {
+    border-radius: 5px;
+    margin: 0 0 0 5px;
   }
 `;
 
