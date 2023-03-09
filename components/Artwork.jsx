@@ -2,15 +2,13 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
 import { useWindowSize } from '../helpers/useWindowSize'
+import { decideColor } from '../helpers'
+import { useTheme } from 'styled-components'
 
 import ArtworkStyles from '../styles/artwork.style'
 
 const artLoader = ({ src }) => {
     return `https://thefilterman.de/artwork/${src}_xl.jpg`
-}
-
-const getSeriesColor = series => {
-    
 }
 
 const Artwork = ({artwork}) => {
@@ -19,7 +17,7 @@ const Artwork = ({artwork}) => {
     const [artContainer, setArtContainer] = useState(0)
     const [artWidth, setArtWidth] = useState(0)
     const [artHeight, setArtHeight] = useState(0)
-
+    const theme = useTheme()
 
     useEffect(() => {
         var responsiveWidth
@@ -120,7 +118,7 @@ const Artwork = ({artwork}) => {
                     <p className="artwork-title">{artwork.title}</p>
                     <div 
                         className="artwork-title-series-box" 
-                        style={{ backgroundColor: 'blue' }}
+                        style={{ backgroundColor: theme.colors[decideColor(artwork.series)] }}
                     />
                 </div>
             </div>

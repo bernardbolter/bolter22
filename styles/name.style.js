@@ -19,9 +19,24 @@ const NameStyle = styled.div`
   }
 
   .name-info {
-    margin: 28px 0 0 ${props => props.theme.spacing.smSpace};
+    margin: 28px 0 0 5px;
     position: relative;
     z-index: 401;
+
+    @media only screen and (min-width: ${props =>
+        props.theme.breakpoints.mobile}px) {
+      margin: 32px 0 0 6px;
+    }
+
+    @media only screen and (min-width: ${props =>
+        props.theme.breakpoints.tablet}px) {
+      margin: 36px 0 0 7px;
+    }
+
+    @media only screen and (min-width: ${props =>
+        props.theme.breakpoints.desktop}px) {
+      margin: 42px 0 0 8px;
+    }
   }
 
   .name-insta-svg {

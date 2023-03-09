@@ -13,11 +13,21 @@ const fonts = {
 };
 
 export const randomTheme = mode => {
-  console.log(mode);
   const colors = {
     bg: mode === "light" ? randomColor(235, 255) : randomColor(10, 30),
     fg: mode === "light" ? randomColor(10, 30) : randomColor(235, 255),
     warning: "#d11a2a",
+    sale: "#DAA520",
+    war: "#6D2E46",
+    ach: "#9DC3C2",
+    meg: "#FC7753",
+    dcs: "#F6BD60",
+    col: "#99C2A2",
+    van: "#7B8CDE",
+    og: "#395B0E",
+    ins: "#A27E8E",
+    pho: "#2D4654",
+    vid: "#996a3e",
   };
 
   //   colors.foreground = randomColor(100, 200);

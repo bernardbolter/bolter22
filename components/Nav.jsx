@@ -22,15 +22,16 @@ import NavStyle from '../styles/nav.style'
 // import styles from '../styles/nav.module.scss'
 
 const filterValues = [
-    {slug: 'mediums_of_war', name: 'Mediums of War', x1: -60, x2: -22, y1: 10, y2: 150, y3: 150, color: '#6D2E46'},
-    {slug: 'a_colorful_history', name: 'A Colorful History', x1: -40, x2: -22, y1: 10, y2: 172, y3: 176, color: '#9DC3C2'},
-    {slug: 'megacities', name: "Megacities", x1: -20, x2: -22, y1: 10, y2: 194, y3: 201, color: '#FC7753'},
-    {slug: 'digital_city_series', name: 'Digital City Series', x1: -60, x2: -22, y1: 30, y2: 216, y3: 226, color: '#F6BD60'},
-    {slug: 'art_collision', name: 'Art Collision', x1: -40, x2: -22, y1: 30, y2: 238, y3: 251, color: '#99C2A2'},
-    {slug: 'vanishing_landscapes', name: 'Vanishing Landscapes', x1: -20, x2: -22, y1: 30, y2: 261, y3: 276, color: '#7B8CDE'},
-    {slug: 'installations', name: 'Installations', x1: -60, x2: -22, y1: 50, y2: 282, y3: 301, color: '#A27E8E'},
-    {slug: 'photography', name: 'Photography', x1: -40, x2: -22, y1: 50, y2: 305, y3: 325, color: '#2D4654'},
-    {slug: 'og', name: 'OG Artwork', x1: -20, x2: -22, y1: 50, y2: 327, y3: 350,  color: '#659B5E'}
+    {slug: 'mediums-of-war', name: 'Mediums of War', x1: -60, x2: -22, y1: 10, y2: 150, y3: 150},
+    {slug: 'a-colorful-history', name: 'A Colorful History', x1: -40, x2: -22, y1: 10, y2: 172, y3: 176},
+    {slug: 'megacities', name: "Megacities", x1: -20, x2: -22, y1: 10, y2: 194, y3: 201},
+    {slug: 'digital-city-series', name: 'Digital City Series', x1: -60, x2: -22, y1: 30, y2: 216, y3: 226},
+    {slug: 'art-collision', name: 'Art Collision', x1: -40, x2: -22, y1: 30, y2: 238, y3: 251},
+    {slug: 'vanishing-landscapes', name: 'Vanishing Landscapes', x1: -20, x2: -22, y1: 30, y2: 261, y3: 276},
+    {slug: 'og', name: 'OG Artwork', x1: -60, x2: -22, y1: 50, y2: 282, y3: 301},
+    {slug: 'installations', name: 'Installations', x1: -40, x2: -22, y1: 50, y2: 305, y3: 325},
+    {slug: 'photography', name: 'Photography', x1: -20, x2: -22, y1: 50, y2: 327, y3: 350},
+    {slug: 'videos', name: 'Videos', x1: -20, x2: -22, y1: 50, y2: 349, y3: 376}
 ]
 
 const sortValues = [
@@ -47,19 +48,19 @@ const Nav = () => {
     return (
     <NavStyle>
         {/* navigation background */}
-        {size.width < 550 && (
-            <motion.div
-                className="nav-background"
-                style={{ 
-                    width: size.width, 
-                    height: size.height,
-                    zIndex: art.showFilterNav ? 301 : 1
-                }}
-                initial={{ translateX: size.width }}
-                animate={{ translateX: art.showFilterNav ? 0 : size.width }}
-                transition={{ duration: 1 }}
-            />
-        )}
+        <motion.div
+            className="nav-background"
+            key="nav-background-mobile"
+            style={{ 
+                width: size.width, 
+                height: size.height,
+                zIndex: 301
+            }}
+            initial={{ translateX: size.width }}
+            animate={{ translateX: art.showFilterNav ? size.width < 550 ? size.width - 235 : size.width - 215 : size.width }}
+            transition={{ duration: 1 }}
+        />
+
         
         <div className="nav-container">
             <motion.p 
@@ -108,7 +109,7 @@ const Nav = () => {
                             <NavItem  item={{ name: 'Artwork for Sale', slug: 'forSale' }} type="filter" />
                             <div 
                                 className={art.filterArray.includes('forSale') ? "box box-on" : "box"}
-                                style={{ background: '#696969', position: 'relative' }}
+                                style={{ background: theme.colors.sale, position: 'relative' }}
                             />
                         </div>
                     </motion.div>
