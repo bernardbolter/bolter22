@@ -20,6 +20,26 @@ export const shuffle = array => {
   return array;
 };
 
+export const sortNew = array => {
+  var sortedArray = array.sort((a, b) => {
+    var dateA = new Date(a.date);
+    var dateB = new Date(b.date);
+    return dateB - dateA;
+  });
+
+  return sortedArray;
+};
+
+export const sortOld = array => {
+  var sortedArray = array.sort((a, b) => {
+    var dateA = new Date(a.date);
+    var dateB = new Date(b.date);
+    return dateA - dateB;
+  });
+
+  return sortedArray;
+};
+
 export const decideColor = slug => {
   if (slug === "mediums-of-war") {
     return "war";

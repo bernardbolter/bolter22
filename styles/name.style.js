@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { pSBC } from "../utils";
+import { pSBC, hexToRgba } from "../utils";
 
 const NameStyle = styled.div`
   .name-wrapper {
@@ -14,7 +14,7 @@ const NameStyle = styled.div`
       padding: 3px 5px;
       position: fixed;
       z-index: 401;
-      background: rgba(240, 240, 240, 0.7);
+      background: ${props => hexToRgba(props.theme.colors.bg, 0.7)};
     }
   }
 

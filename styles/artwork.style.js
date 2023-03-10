@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { hexToRgba } from "../utils";
 
 const ArtworkStyle = styled.div`
   .artwork-container {
@@ -29,7 +30,7 @@ const ArtworkStyle = styled.div`
   .artwork-title {
     font-size: 11px;
     font-weight: 200;
-    color: rgba(0, 0, 0, 0.6);
+    color: ${props => hexToRgba(props.theme.colors.fg, 0.7)};
     line-height: 1;
     margin: 0;
     padding: 0;

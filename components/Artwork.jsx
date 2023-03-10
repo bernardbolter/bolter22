@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 
 import { useWindowSize } from '../helpers/useWindowSize'
@@ -18,6 +19,7 @@ const Artwork = ({artwork}) => {
     const [artWidth, setArtWidth] = useState(0)
     const [artHeight, setArtHeight] = useState(0)
     const theme = useTheme()
+    const router = useRouter()
     // console.log(artwork)
 
     useEffect(() => {
@@ -100,7 +102,7 @@ const Artwork = ({artwork}) => {
                     margin: 0,
                     padding: 0
                 }}
-                onClick={() => console.log(artwork.title)}
+                onClick={() => router.push(`/${artwork.slug}`)}
             >
                 <Image
                     loader={artLoader}

@@ -11,7 +11,6 @@ const Name = () => {
     const [art, setArt] = useContext(ArtContext)
     const [showLinks, setShowLinks] = useState(false)
     const router = useRouter()
-    console.log(art.artistInfo)
 
     return (
         <AnimatePresence>

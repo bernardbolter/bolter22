@@ -7,7 +7,7 @@ const Theme = ({ children }) => {
     const [themeStyle] = useContext(ThemeStyleContext)
     const [currentTheme, setCurrentTheme] = useState({})
 
-    console.log("current: ", currentTheme)
+    // console.log("current: ", currentTheme)
 
     useEffect(() => {
         setCurrentTheme(themeStyle.theme)

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react'
-import { shuffle } from '../utils'
+import { shuffle, sortNew, sortOld } from '../helpers'
 
 export const ArtContext = createContext()
 
@@ -29,6 +29,8 @@ const ArtProvider = ({ children }) => {
         filterArray: [],
         searchValue: ""
     })
+    console.log(art.sortValue)
+    console.log(art.filterArray)
 
     // shape artist info data
     useEffect(() => {
@@ -65,6 +67,7 @@ const ArtProvider = ({ children }) => {
             var newArt = art.artworkFields
             newArt["slug"] = art.slug
             newArt["title"] = art.title
+            newArt["date"] = art.date
             shapedArtwork.push(newArt)
            })
            setArt(state => ({ 
@@ -114,6 +117,27 @@ const ArtProvider = ({ children }) => {
             setArt(state => ({ ...state, cv: newCV }))
         }
     }, [art.sourceCV])
+
+    // Handle artwork filter
+    useEffect(() => {
+        var newSorted
+        var newFiltered
+        if (art.sortValue === 'newest') {
+            newSorted = sortNew(art.originalArtwork)
+        } else if (art.sortValue === 'oldest') {
+            newSorted = sortOld(art.originalArtwork)
+        } else if (art.sortValue === 'random') {
+            newSorted = shuffle(art.originalArtwork)
+        } else newSorted = art.originalArtwork
+
+        if (art.filterArray.length !== 0) {
+            newFiltered = newSorted.filter(artwork => art.filterArray.includes(artwork.series))
+        } else {
+            newFiltered = newSorted
+        }
+        
+        setArt(state => ({ ...state, filteredArtwork: newFiltered }))
+    }, [art.sortValue, art.filterArray])
 
     return (
         <ArtContext.Provider

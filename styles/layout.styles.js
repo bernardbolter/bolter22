@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { hexToRgba } from "../utils";
 
 const LayoutStyle = styled.div`
   .layout-wrapper {
@@ -18,7 +19,7 @@ const LayoutStyle = styled.div`
     z-index: 299;
     top: 0;
     right: 0;
-    background: rgba(240, 240, 240, 0.75);
+    background: ${props => hexToRgba(props.theme.colors.bg, 0.7)};
   }
 
   .top-fade-gradient {

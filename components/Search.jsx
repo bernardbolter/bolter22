@@ -6,7 +6,7 @@ import SearchStyle from '../styles/search.style'
 
 const Search = () => {
     const [art, setArt] = useContext(ArtContext)
-    console.log("art search: ", art.searchValue)
+    // console.log("art search: ", art.searchValue)
     const theme = useTheme()
 
     return (

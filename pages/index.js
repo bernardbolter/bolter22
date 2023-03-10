@@ -26,8 +26,9 @@ import { ArtContext } from "../providers/ArtProvider";
 // news - 600
 
 const Home = ({ indexData }) => {
-  console.log("index: ", indexData);
+  // console.log("index: ", indexData);
   const [art, setArt] = useContext(ArtContext);
+  console.log("index art: ", art);
 
   useEffect(() => {
     if (Object.keys(indexData).length !== 0) {
