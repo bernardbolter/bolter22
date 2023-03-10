@@ -1,18 +1,23 @@
-import { getStaticArtworkPaths, getFullArtworkProps } from '../lib/api'
-import ArtworkFullStyle from "../styles/artworkFull.style"
+import ArtworkFull from '../components/ArtworkFull'
+import Detail from '../components/Detail'
 
-const ArtworkFull = ({ fullArtworkData }) => {
+import { getStaticArtworkPaths, getFullArtworkProps } from '../lib/api'
+import ArtStyle from "../styles/art.style"
+
+const Art = ({ fullArtworkData }) => {
     console.log(fullArtworkData)
     return (
-        <ArtworkFullStyle>
-            <div className="artwork-full-container">
+        <ArtStyle>
+            <div className="art-container">
                 <h1>Full Artwork</h1>
+                <ArtworkFull series={10} slug={10} />
+                <Detail />
             </div>
-        </ArtworkFullStyle>
+        </ArtStyle>
     )
 }
 
-export default ArtworkFull
+export default Art
 
 export async function getStaticPaths() {
     const staticPaths = await getStaticArtworkPaths()

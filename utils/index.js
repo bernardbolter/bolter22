@@ -10,7 +10,6 @@ export const shuffle = array => {
 };
 
 export const hexToRgba = (hex, opacity) => {
-  console.log(hex);
   hex = hex.replace(/#/g, "");
   if (hex.length === 3) {
     hex = hex
@@ -22,15 +21,13 @@ export const hexToRgba = (hex, opacity) => {
   }
   opacity = opacity == void 0 ? 1 : opacity;
   var result = /^([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})[\da-z]{0,0}$/i.exec(hex);
-  console.log(result);
+
   if (!result) {
     return null;
   }
   var red = parseInt(result[1], 16);
   var green = parseInt(result[2], 16);
   var blue = parseInt(result[3], 16);
-
-  console.log(`rgba(${red},${green},${blue}, ${opacity})`);
 
   return `rgba(${red},${green},${blue}, ${opacity})`;
 };

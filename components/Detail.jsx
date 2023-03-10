@@ -1,12 +1,14 @@
 import React from 'react'
 
-import "../styles/detail.scss"
+import DetailStyle from '../styles/detail.style'
 
 const Detail = () => {
     return (
-        <div className="detail-container">
-            <h1>Detail</h1>
-        </div>
+        <DetailStyle>
+            <div className="detail-container">
+                <h1>Detail</h1>
+            </div>
+        </DetailStyle>
     )
 }
 
