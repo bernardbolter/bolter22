@@ -74,25 +74,6 @@ const InfoStyle = styled.div`
       transform-origin: bottom left;
     }
   }
-
-  .info-back {
-    position: fixed;
-    z-index: 250;
-    bottom: -20px;
-    left: -20px;
-    width: 120px;
-    height: 200px;
-    background: ${props => props.theme.colors.bg};
-    opacity: 0.5;
-    display: none;
-    transform: rotate(-9deg);
-    border-top-right-radius: 100px;
-
-    @media only screen and (min-width: ${props =>
-        props.theme.breakpoints.mobile}px) {
-      display: block;
-    }
-  }
 `;
 
 export default InfoStyle;

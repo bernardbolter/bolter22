@@ -9,7 +9,7 @@ import { useTheme } from 'styled-components'
 import ArtworkStyles from '../styles/artwork.style'
 
 const artLoader = ({ src }) => {
-    return `https://thefilterman.de/artwork/${src}_xl.jpg`
+    return `https://thefilterman.de/artwork/${src}_md.jpg`
 }
 
 const Artwork = ({artwork}) => {
@@ -107,7 +107,7 @@ const Artwork = ({artwork}) => {
                 <Image
                     loader={artLoader}
                     src={src}
-                    alt={`${artwork.title} from the ${artwork.series}`}
+                    alt={`${artwork.title} from the ${artwork.series}, by Bernard Bolter`}
                     width={artWidth}
                     height={artHeight}
                     placeholder="blur"

@@ -10,7 +10,6 @@ const Info = () => {
     return (
         <InfoStyle>
             <div className="info-wrapper">
-                <div className="info-back" />
                 {router.pathname === '/bio' ? null : <Link className="info-link" href="/bio">Bio</Link>}
                 {router.pathname === '/cv' ? null : <Link className="info-link" href="/cv">CV</Link>}
                 {router.pathname === '/statement' ? null : <Link className="info-link" href="/statement">Statement</Link>}
