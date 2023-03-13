@@ -23,7 +23,8 @@ const Statement = ({ statementData }) => {
                 statement: statementData.page.content
             }))
         }
-    }, [statementData])
+    }, [statementData, setArt])
+    
     return (
         <StatementStyle>
             <div className="statement-container">

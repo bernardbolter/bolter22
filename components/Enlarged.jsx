@@ -44,7 +44,7 @@ const Enlarged = ({ url, alt, proportion }) => {
             : (((artHeight - size.height) / 2) + 40)
         }
         setBounds(newBounds)
-    }, [size])
+    }, [size, proportion, artHeight, artWidth])
 
     const handleDrag = (e, position) => {
         const { x, y } = position;

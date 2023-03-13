@@ -14,9 +14,19 @@ const Exhibit = () => {
     // console.log(currentArtwork)
 
     useEffect(() => {
+        const changeArt = () => {
+            const lastIndex = art.filteredArtwork.length - 1
+            console.log("last: ",lastIndex)
+            setArt(state => ({ ...state, exhibitPosition: art.exhibitPosition === lastIndex ? 0 : art.exhibitPosition + 1}))
+            console.log("position: ", art.exhibitPosition)
+            // setPosition(position => {
+            //     return position === lastIndex ? 0 : position + 1
+            // })
+        }
+        
         const interval = setInterval(changeArt, 10000)
         return () => clearInterval(interval)
-    }, [art.exhibitPosition])
+    }, [art.exhibitPosition, changeArt])
 
     useEffect(() => {
         console.log(art.filteredArtwork)
@@ -25,17 +35,7 @@ const Exhibit = () => {
             setArt(state => ({ ...state, currentArtwork: art.filteredArtwork[art.exhibitPosition] }))
             // setCurrentArtwork(art.filteredArtwork[art.exhibitPosition])
         }
-    }, [art.exhibitPosition])
-
-    const changeArt = () => {
-        const lastIndex = art.filteredArtwork.length - 1
-        console.log("last: ",lastIndex)
-        setArt(state => ({ ...state, exhibitPosition: art.exhibitPosition === lastIndex ? 0 : art.exhibitPosition + 1}))
-        console.log("position: ", art.exhibitPosition)
-        // setPosition(position => {
-        //     return position === lastIndex ? 0 : position + 1
-        // })
-    }
+    }, [art.exhibitPosition, art.currentArtwork, art.filteredArtwork, setArt])
 
     console.log(art.currentArtwork)
 

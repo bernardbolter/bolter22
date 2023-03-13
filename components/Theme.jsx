@@ -12,7 +12,7 @@ const Theme = ({ children }) => {
     useEffect(() => {
         setCurrentTheme(themeStyle.theme)
         console.log(currentTheme)
-    }, [themeStyle.theme])
+    }, [themeStyle.theme, currentTheme])
 
     if (Object.keys(currentTheme).length !== 0) {
         return (

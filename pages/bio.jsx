@@ -22,7 +22,7 @@ const Bio = ({ bioData }) => {
                 bio: bioData.page.content
             }))
         }
-    }, [bioData])
+    }, [bioData, setArt])
 
     return (
         <BioStyle>

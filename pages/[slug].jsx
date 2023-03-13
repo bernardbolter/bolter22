@@ -60,7 +60,7 @@ const Art = ({ arts }) => {
             }
         }
         console.log(artHeight, artWidth)
-    }, [artwork, size])
+    }, [artwork, size, artWidth, artHeight])
 
     return (
         <ArtStyle>

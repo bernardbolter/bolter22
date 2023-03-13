@@ -37,7 +37,7 @@ const Home = ({ indexData }) => {
         sourceInfo: indexData.artistInfo,
       }));
     }
-  }, [indexData]);
+  }, [indexData, setArt]);
 
   return (
     <Layout>

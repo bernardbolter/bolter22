@@ -23,7 +23,7 @@ const CV = ({ cvData }) => {
                 sourceCV: cvData.cvinfos
             }))
         }
-    }, [cvData])
+    }, [cvData, setArt])
 
     return (
         <CVStyle>
@@ -45,7 +45,7 @@ const CV = ({ cvData }) => {
                             <div className="cv-entry" key={i}>
                                 <h4>{solo.year}</h4>
                                 <h3>{solo.gallery}</h3>
-                                <h2>'{solo.title}'</h2>
+                                <h2>&apos;{solo.title}&apos;</h2>
                                 <h5>- {solo.city}</h5>
                             </div>
                         ))}
@@ -54,7 +54,7 @@ const CV = ({ cvData }) => {
                             <div className="cv-entry" key={i}>
                                 <h4>{group.year}</h4>
                                 <h3>{group.gallery}</h3>
-                                <h2>'{group.title}'</h2>
+                                <h2>&apos;{group.title}&apos;</h2>
                                 <h5>- {group.city}</h5>
                             </div>
                         ))}
@@ -63,7 +63,7 @@ const CV = ({ cvData }) => {
                             <div className="cv-entry" key={i}>
                                 <h4>{performance.year}</h4>
                                 <h3>{performance.gallery}</h3>
-                                <h2>'{performance.title}'</h2>
+                                <h2>&apos;{performance.title}&apos;</h2>
                                 <h5>- {performance.city}</h5>
                             </div>
                         ))}
@@ -72,7 +72,7 @@ const CV = ({ cvData }) => {
                             <div className="cv-entry" key={i}>
                                 <h4>{edu.year}</h4>
                                 <h2>{edu.school}</h2>
-                                <h3>'{edu.title}'</h3>
+                                <h3>&apos;{edu.title}&apos;</h3>
                                 <h5>- {edu.city}</h5>
                             </div>
                         ))}
