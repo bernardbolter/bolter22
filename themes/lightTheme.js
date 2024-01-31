@@ -8,17 +8,17 @@ const breakpoints = {
 };
 
 const colors = {
-  bg: "#ededed",
+  bg: "#dcdcdc",
   fg: "#343434",
-  warning: "#d11a2a",
+  warning: "#ffcccb",
   sale: "#85bb65",
-  war: "#6D2E46",
+  bda: "#6D2E46",
   ach: "#9DC3C2",
   meg: "#FC7753",
   dcs: "#F6BD60",
   col: "#99C2A2",
   van: "#7B8CDE",
-  og: "#395B0E",
+  ogp: "#395B0E",
   ins: "#A27E8E",
   pho: "#2D4654",
   vid: "#996a3e",

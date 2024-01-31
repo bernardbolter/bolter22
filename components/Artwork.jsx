@@ -9,10 +9,11 @@ import { useTheme } from 'styled-components'
 import ArtworkStyles from '../styles/artwork.style'
 
 const artLoader = ({ src }) => {
-    return `https://thefilterman.de/artwork/${src}_md.jpg`
+    return `https://digitalcityseries.com/art/${src}_md.jpg`
 }
 
 const Artwork = ({artwork}) => {
+    // console.log(artwork.slug)
     const src = `${artwork.series}/${artwork.slug}/${artwork.slug}`
     const size = useWindowSize()
     const [artContainer, setArtContainer] = useState(0)
@@ -53,34 +54,34 @@ const Artwork = ({artwork}) => {
             }
         } else if (artwork.orientation === 'portrait') {
             if (artwork.size === "xl") {
-                setArtWidth((responsiveWidth * artwork.proportion) * .99)
-                setArtHeight(responsiveWidth * .99)
-            } else if (artwork.size === "lg") {
-                setArtWidth((responsiveWidth * artwork.proportion) * .96)
-                setArtHeight(responsiveWidth * .96)
-            } else if (artwork.size === "md") {
-                setArtWidth((responsiveWidth * artwork.proportion) * .93)
-                setArtHeight(responsiveWidth * .93)
-            } else if (artwork.size === "sm") {
                 setArtWidth((responsiveWidth * artwork.proportion) * .9)
                 setArtHeight(responsiveWidth * .9)
+            } else if (artwork.size === "lg") {
+                setArtWidth((responsiveWidth * artwork.proportion) * .8)
+                setArtHeight(responsiveWidth * .8)
+            } else if (artwork.size === "md") {
+                setArtWidth((responsiveWidth * artwork.proportion) * .7)
+                setArtHeight(responsiveWidth * .7)
+            } else if (artwork.size === "sm") {
+                setArtWidth((responsiveWidth * artwork.proportion) * .6)
+                setArtHeight(responsiveWidth * .6)
             } else {
                 setArtWidth(responsiveWidth * .8)
                 setArtHeight(responsiveWidth * .8)
             }
         } else if (artwork.orientation === 'landscape') {
             if (artwork.size === "xl") {
-                setArtWidth(responsiveWidth * .99)
-                setArtHeight((responsiveWidth / artwork.proportion) * .99)
-            } else if (artwork.size === "lg") {
-                setArtWidth(responsiveWidth * .96)
-                setArtHeight((responsiveWidth / artwork.proportion) * .96)
-            } else if (artwork.size === "md") {
-                setArtWidth(responsiveWidth * .93)
-                setArtHeight((responsiveWidth / artwork.proportion) * .93)
-            } else if (artwork.size === "sm") {
                 setArtWidth(responsiveWidth * .9)
                 setArtHeight((responsiveWidth / artwork.proportion) * .9)
+            } else if (artwork.size === "lg") {
+                setArtWidth(responsiveWidth * .8)
+                setArtHeight((responsiveWidth / artwork.proportion) * .8)
+            } else if (artwork.size === "md") {
+                setArtWidth(responsiveWidth * .7)
+                setArtHeight((responsiveWidth / artwork.proportion) * .7)
+            } else if (artwork.size === "sm") {
+                setArtWidth(responsiveWidth * .6)
+                setArtHeight((responsiveWidth / artwork.proportion) * .6)
             } else {
                 setArtWidth(responsiveWidth * .8)
                 setArtHeight(responsiveWidth * .8)
@@ -111,7 +112,7 @@ const Artwork = ({artwork}) => {
                     width={artWidth}
                     height={artHeight}
                     placeholder="blur"
-                    blurDataURL="/globe.gif"
+                    blurDataURL={`https://digitalcityseries.com/art/${src}_sm.jpg`}
                  />
                  <div 
                     className="artwork-info-container"
@@ -122,7 +123,7 @@ const Artwork = ({artwork}) => {
                 >   
                     <div className="artwork-title-container">
                         <p className="artwork-title">
-                            {artwork.title}{artwork.year && `\u00A0\u00A0\u00A0||\u00A0\u00A0\u00A0${artwork.year}`}
+                            {artwork.title}{artwork.year && `\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0${artwork.year}`}
                         </p>
                         {artwork.forsale && (
                             <div 

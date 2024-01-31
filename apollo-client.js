@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 
 const client = new ApolloClient({
-    uri: 'https://bolter.madeinberlin.net/graphql',
+    uri: 'https://digitalcityseries.com/bolter/graphql',
     cache: new InMemoryCache
 })
 

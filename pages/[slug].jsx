@@ -16,7 +16,7 @@ import Magnify from '../svg/magnify'
 import Unmagnify from '../svg/unmagnify'
 
 const artLoader = ({ src }) => {
-    return `https://thefilterman.de/artwork/${src}_lg.jpg`
+    return `https://digitalcityseries.com/art/${src}_lg.jpg`
 }
 
 const Art = ({ arts }) => {
@@ -80,7 +80,7 @@ const Art = ({ arts }) => {
                         width={artWidth}
                         height={artHeight}
                         placeholder="blur"
-                        blurDataURL="/globe.gif"
+                        blurDataURL={`https://digitalcityseries.com/art/${src}_sm.jpg`}
                         style={{ zIndex: artForward ? '501' : '401' }}
                         onClick={() => setArtForward(!artForward)}
                     />
@@ -109,7 +109,7 @@ const Art = ({ arts }) => {
                 </div>
                 {artEnlarge && (
                     <Enlarged 
-                        url={`https://thefilterman.de/artwork/${artwork.series}/${slug}/${slug}_xl.jpg`} 
+                        url={`https://digitalcityseries.com/art/${artwork.series}/${slug}/${slug}_xl.jpg`} 
                         alt={`${title} from the ${artwork.series}, by Bernard John Bolter IV`}
                         proportion={artwork.proportion}
                         orientation={artwork.orientation}   

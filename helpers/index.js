@@ -41,8 +41,8 @@ export const sortOld = array => {
 };
 
 export const decideColor = slug => {
-  if (slug === "mediums-of-war") {
-    return "war";
+  if (slug === "breaking-down-art") {
+    return "bda";
   } else if (slug === "a-colorful-history") {
     return "ach";
   } else if (slug === "megacities") {
@@ -53,13 +53,13 @@ export const decideColor = slug => {
     return "col";
   } else if (slug === "vanishing-landscapes") {
     return "van";
-  } else if (slug === "og") {
-    return "og";
+  } else if (slug === "og-oil-paintings") {
+    return "ogp";
   } else if (slug === "installations") {
     return "ins";
   } else if (slug === "photography") {
     return "pho";
   } else if (slug === "videos") {
     return "vid";
-  } else return "war";
+  } else return "col";
 };
