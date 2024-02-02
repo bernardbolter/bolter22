@@ -57,7 +57,7 @@ const ArtStyle = styled.div`
   .detail-container {
     display: block;
     width: auto;
-    background: rgba(255, 255, 255, 0.9);
+    background: ${props => hexToRgba(props.theme.colors.bg, 0.8)};
     position: absolute;
     bottom: 30px;
     left: 30px;
