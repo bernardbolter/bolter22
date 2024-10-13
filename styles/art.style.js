@@ -75,7 +75,7 @@ const ArtStyle = styled.div`
       font-weight: 200;
       margin: 0;
       text-align: left;
-    }
+    } formik
 
     .detail-box {
       width: 15px;
